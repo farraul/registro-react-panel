@@ -1,5 +1,3 @@
-# Getting Started with Create React App
-
 # Instalación
 npx create-react-app appprueba (entramos en la carpeta)
 
