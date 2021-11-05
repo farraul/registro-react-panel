@@ -17,7 +17,7 @@ const Home = () => {
             
 
             <div>
-           <p>Home</p>
+           <p>Bienbenidos a mi FrontEnd</p>
             </div>
         </div>
 

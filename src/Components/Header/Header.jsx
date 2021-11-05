@@ -14,6 +14,7 @@ const Header = () => {
             </div>
             <div id="menu">
                 <Boton destino="Home" url="/"/>
+                <Boton destino="Profile" url="/profile"/>
                 <Boton destino="Login" url="/login"/>
                 <Boton destino="Register" url="/register"/>
             </div>

@@ -1,0 +1,24 @@
+.table-row {
+    display: flex;
+}
+div#table-profile {
+    width: 20em;
+    margin: auto;
+    margin-top: 10em;
+}
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    height: 3em;
+    align-items: center;
+    padding: 0px 27px 0px 0px ;
+}
+.table-field-1 {
+    width: 6em;
+    background-color: #dbdbdb;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+}

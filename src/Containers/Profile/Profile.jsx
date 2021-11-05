@@ -15,13 +15,24 @@ const Profile = () => {
 
     return (
         <div className="designProfile">
-            {datosPerfil.createdAt}
-            <br/>
-            {datosPerfil.email}
-            <br/>
-            {datosPerfil.password}
-            <br/>
-            {datosPerfil.updatedAt}
+            <div id="table-profile">
+                <div className="table-row">
+                    <div className="table-field-1">Nombre:</div>
+                    <div>{datosPerfil.name}</div>
+                </div>
+                <br/>
+                <div className="table-row">
+                    <div className="table-field-1">Email:</div>
+                    <div>{datosPerfil.email}</div>
+                </div>
+                <br/>
+                <div className="table-row">
+                    <div className="table-field-1">Teléfono:</div>
+                    <div>{datosPerfil.telf}</div>
+                </div>
+                <br/>
+            
+            </div>
         </div>
     )
 };

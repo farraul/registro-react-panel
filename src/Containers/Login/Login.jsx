@@ -52,8 +52,8 @@ const Login = () => {
 
         <div className="designLogin">
             <div id="style-div-form-login">
-                {<pre>{JSON.stringify(credentials, null,2)}</pre>}
-                <input class="style-form-login" type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' placeholder="Usuario" />
+                {/*<pre>{JSON.stringify(credentials, null,2)}</pre>*/}
+                <input class="style-form-login" type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' placeholder="Email" />
                 <input class="style-form-login" type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' placeholder="Contraseña" />
                 <div className="sendButton" onClick={() => logeame()}>Login</div>
                 <div className="error">{msgError}</div>

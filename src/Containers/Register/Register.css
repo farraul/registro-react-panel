@@ -1,8 +1,8 @@
 
-.designLogin{
+.designRegister{
     display: flex;
     flex-direction: column;
-
+    height: calc(100vh - 7em);
     justify-content: center;
     align-items: center;
 }
@@ -19,15 +19,28 @@
     align-items: center;
     font-size: 1.2em;
 }
-input.style-form-login {
-    margin-top: 1em;
+input.style-form-register {
+    margin-top: 1.1em;
     height: 2em;
     color: black;
-    font-size: 30px;
+    font-size: 1.1em;
     padding: 0.2em;
 }
-div#style-div-form-login {
+div#style-div-form-register {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.input-form-register {
+    height: 3em;
+    width: 18em;
+    font-size: 1.1em;
+    margin-top: 1em;
+
+}
+#container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

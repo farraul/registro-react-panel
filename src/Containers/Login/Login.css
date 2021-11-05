@@ -2,7 +2,7 @@
 .designLogin{
     display: flex;
     flex-direction: column;
-
+    height: calc(100vh - 7em);
     justify-content: center;
     align-items: center;
 }
@@ -17,13 +17,13 @@
     margin-top: 2em;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 input.style-form-login {
     margin-top: 1em;
     height: 2em;
     color: black;
-    font-size: 25px;
+    font-size: 1.4em;
     padding: 0.2em;
 }
 div#style-div-form-login {
