@@ -51,11 +51,13 @@ const Login = () => {
     return (
 
         <div className="designLogin">
-            {<pre>{JSON.stringify(credentials, null,2)}</pre>}
-            <input type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' />
-            <input type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' />
-            <div className="sendButton" onClick={() => logeame()}>Login</div>
-            <div className="error">{msgError}</div>
+            <div id="style-div-form-login">
+                {<pre>{JSON.stringify(credentials, null,2)}</pre>}
+                <input class="style-form-login" type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' placeholder="Usuario" />
+                <input class="style-form-login" type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' placeholder="Contraseña" />
+                <div className="sendButton" onClick={() => logeame()}>Login</div>
+                <div className="error">{msgError}</div>
+            </div>
         </div>
     )
 };
