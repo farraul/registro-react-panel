@@ -32,7 +32,6 @@ const Login = () => {
         try {
 
             let res = await axios.post("https://app-movies-mongoose.herokuapp.com/api/signin", body);
-            setmsgError(`Hola de nuevo ${res.data.Usuario.email}....`);
             console.log("imprimir ", res);
             localStorage.setItem("datosLogin", JSON.stringify(res.data.Usuario));
 
@@ -53,8 +52,9 @@ const Login = () => {
         <div className="designLogin">
             <div id="style-div-form-login">
                 {/*<pre>{JSON.stringify(credentials, null,2)}</pre>*/}
-                <input class="style-form-login" type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' placeholder="Email" />
-                <input class="style-form-login" type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' placeholder="Contraseña" />
+                <h1>Acceder</h1>
+                <input className="style-form-login" type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' placeholder="Email" />
+                <input className="style-form-login" type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' placeholder="Contraseña" />
                 <div className="sendButton" onClick={() => logeame()}>Login</div>
                 <div className="error">{msgError}</div>
             </div>

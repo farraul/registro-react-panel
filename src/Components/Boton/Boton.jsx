@@ -15,6 +15,7 @@ const Boton = (props) => {
     console.log("props: ", props);
     return (
         <div className="designBoton" onClick={()=>llevame()}>{props.destino}</div>
+        
     )
 };
 

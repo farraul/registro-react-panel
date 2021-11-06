@@ -2,7 +2,7 @@
     display: flex;
 }
 div#table-profile {
-    width: 20em;
+    width: 25em;
     margin: auto;
     margin-top: 10em;
 }
@@ -21,4 +21,29 @@ div#table-profile {
     display: flex;
     align-items: center;
     padding-left: 2em;
+}
+
+
+#container-update-profile{
+width: 20em;
+margin: auto;
+margin-top: 10em;
+}
+.designProfile {
+    display: flex;
+}
+
+.input-form-update{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    height: 3em;
+    align-items: center;
+    width: 20em;
+    padding: 0px 27px 0px 0px ;
+}
+.table-update{
+    width: 20em;
+    margin: auto;
+    margin-top: 10em;
 }

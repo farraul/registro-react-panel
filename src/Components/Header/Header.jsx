@@ -14,9 +14,10 @@ const Header = () => {
             </div>
             <div id="menu">
                 <Boton destino="Home" url="/"/>
-                <Boton destino="Profile" url="/profile"/>
+                <Boton destino="Perfil" url="/profile"/>
+                <Boton destino="Registro" url="/register"/>
                 <Boton destino="Login" url="/login"/>
-                <Boton destino="Register" url="/register"/>
+                
             </div>
         </div>
     )

@@ -73,7 +73,7 @@ const Register = () => {
         setmsgError("Usuario registrado con éxito");
         
         setTimeout(()=>{
-            history("/");
+            history("/profile");
         },4000);
     };
 
@@ -83,10 +83,11 @@ const Register = () => {
         <div className="designRegister">
             <div id="container-form">
                 {/*<pre>{JSON.stringify(user, null, 2)}</pre>*/}
-                <input class="input-form-register" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
-                <input class="input-form-register" type='email' name='email' title='email' onChange={userHandler} lenght='30' placeholder='Email' />
-                <input class="input-form-register" type='text' name='telf' title='telf' onChange={userHandler} lenght='30' placeholder='Teléfono' />
-                <input class="input-form-register" type='text' name='password' title='password' onChange={userHandler} lenght='30' placeholder='Password' />
+                <h1>Registrate</h1>
+                <input className="input-form-register" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
+                <input className="input-form-register" type='email' name='email' title='email' onChange={userHandler} lenght='30' placeholder='Email' />
+                <input className="input-form-register" type='text' name='telf' title='telf' onChange={userHandler} lenght='30' placeholder='Teléfono' />
+                <input className="input-form-register" type='text' name='password' title='password' onChange={userHandler} lenght='30' placeholder='Password' />
             
                 <div className="sendButton" onClick={() => enviaDatosRegistro()}>Registrame</div>
             </div>
