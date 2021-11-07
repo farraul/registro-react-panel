@@ -1,0 +1,26 @@
+div#table-home-print {
+    border: solid 0px;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    margin-top: 8em;
+}
+
+
+.colum-home-print {
+    border: 2px 0.5px 2px 0.5px solid;
+    
+}
+
+div#table-home-print {
+    display: flex;
+}
+
+.colum-components-home-print{
+    border-top: 3px solid;
+    border-bottom:  3px solid;
+    border-left: 0.01px solid;
+    border-right: 0.01px solid;
+    padding: 15px 30px;
+    margin: 0;
+}

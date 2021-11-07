@@ -61,7 +61,12 @@ const Register = () => {
         
         try {
             let res = await axios.post("https://app-movies-mongoose.herokuapp.com/api/signup", body);
+            console.log("imprimir res: ",res)
             //Guardado de datos en localStorage
+            localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
+            setmsgError("Usuario registrado con éxito");
+            history("/profile");
+    
             
         } catch (error) {
             console.log(error)
@@ -70,11 +75,7 @@ const Register = () => {
 
         
 
-        setmsgError("Usuario registrado con éxito");
-        
-        setTimeout(()=>{
-            history("/profile");
-        },4000);
+       
     };
 
 

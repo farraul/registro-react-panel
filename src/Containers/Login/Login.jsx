@@ -33,7 +33,10 @@ const Login = () => {
 
             let res = await axios.post("https://app-movies-mongoose.herokuapp.com/api/signin", body);
             console.log("imprimir ", res);
-            localStorage.setItem("datosLogin", JSON.stringify(res.data.Usuario));
+            //localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
+             localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
+            
+            
 
             setTimeout(() => {
                 history("/profile");

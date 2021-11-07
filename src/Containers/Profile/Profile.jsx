@@ -17,11 +17,10 @@ const Profile = () => {
 
 
     {/*modificar datos*/}
-
     //Hooks
     const [msgError, setmsgError] = useState("");
     const [user, setUser] = useState({
-        _id: '',
+        id: '',
         name: '',
         email: '',
         telf: ''
@@ -30,29 +29,61 @@ const Profile = () => {
         setUser({ ...user, [e.target.name]: e.target.value });
     }
 
-
-    const update = () => {
-       //Generación del body
-       let body = {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        telf: user.telf,
-    }
-    //Conexion a axios y envio de datos
-    console.log("ENVIANDO AL BACKEND ESTO....",body);
-    
-    try {
-        let res = axios.put(`https://app-movies-mongoose.herokuapp.com/usuario/${body._id}`, body);
-        //Guardado de datos en localStorage
-        console.log("dentro del try", res);
+    {/*función actualizar usuario*/}
+    const update = async () => {
+        //Generación del body
+        let body = {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            telf: user.telf,
+        }
+        //Conexion a axios y envio de datos
+        console.log("ENVIANDO AL BACKEND ESTO....",body);
         
-    } catch (error) {
+        try {
+            let res = await axios.put(`https://app-movies-mongoose.herokuapp.com/usuario/${datosPerfil._id}`, body);
+            //Guardado de datos en localStorage
+            console.log("dentro del try", res);
+            
+        } catch (error) {
 
-        console.log("error de front", error);
+            console.log("error de front", error);
+        }
     }
+    {/*función borrar un usuario*/}
+    const deleteuser = async () =>{
+        let body = {
+            id: user.id,
+        }
+            //Conexion a axios y envio de datos
+            console.log("ENVIANDO AL BACKEND ESTO....",body);
+        
+            try {
+                let res = await axios.delete(`https://app-movies-mongoose.herokuapp.com/usuario/${datosPerfil._id}`, body);
+                //Guardado de datos en localStorage
+                console.log("dentro del try", res);
+                
+            } catch (error) {
     
+                console.log("error de front", error);
+            }
     }
+
+   {/* //función borrar  todos los usuarios
+    const deletealluser = async () =>{
+         try {
+             let res = await axios.delete(`https://app-movies-mongoose.herokuapp.com/usuario/`);
+             //Guardado de datos en localStorage
+             console.log("dentro del try", res);
+             
+         } catch (error) {
+ 
+             console.log("error de front", error);
+         }
+}
+ */}
+
 
     return (
         <div className="designProfile">
@@ -78,6 +109,7 @@ const Profile = () => {
                     <div>{datosPerfil._id}</div>
                 </div>
             </div>
+   
 
             {/*Parte de actualizar */}
             <div id="container-update-profile">
@@ -91,9 +123,9 @@ const Profile = () => {
                     <br />
                     <input className="input-form-update" type='text' name='telf' title='telf' onChange={userHandler} lenght='30' placeholder='Teléfono' />
                     <br/>
-                    <input className="input-form-update" type='text' name='_id' title='_id' onChange={userHandler} lenght='30' placeholder='_id' />
-
                     <div className="sendButton" onClick={() => update()}>Actualizar datos</div>
+                    <div className="deleteButton" onClick={() => deleteuser()}>Borrar usuario</div>
+                   {/* <div className="deleteButton" onClick={() => deletealluser()}>Borrar todos usuario db</div> */}
                 </div>
             </div>
         </div>

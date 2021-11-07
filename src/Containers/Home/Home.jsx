@@ -1,23 +1,93 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
 import './Home.css';
 
 const Home = () => {
-    const history = useNavigate();
-    //const login = () => {
-     //history("/login");
-       //<div className="botonSend" onClick={() => login()}>Registrame</div>
-    //}
 
+
+    const history = useNavigate();
+/*
+        let body = {
+            email: credentials.correo,
+            password: credentials.clave
+        };*/
+        const [msgError, setmsgError] = useState("");
+        const [user, setUser] = useState({
+            id: '',
+            name: '',
+            email: '',
+            telf: ''
+        });
+
+      
+        try {
+
+        let res =  axios.get("https://app-movies-mongoose.herokuapp.com/usuario/");
+        res.then((res)=>{
+
+                //console.log("imprimir data: ", res.data);
+                const getdata = res.data;
+               
+                localStorage.setItem("data_api", JSON.stringify(getdata));
+                    
+            })
+
+            //localStorage.setItem("datosLogin", JSON.stringify(res.data));
+           // localStorage.setItem("datosLogin", JSON.stringify(res));
+           // localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
+               
+        } catch (error) {
+            setmsgError("Error al logearmeee"); 
+
+        }
+        const [dataprint, setDatosPerfil] = useState(JSON.parse(localStorage.getItem("data_api")));
+        useEffect(() => {
+            console.log("imprimir data",dataprint) //ese se hace la primera vez que carga el componente
+        }, [])
+    
+       
     return (
         <div>
-            
-
             <div>
-           <p>Bienbenidos a mi FrontEnd</p>
+                <h1>últimos usuarios registrados</h1>
+                
+                <div id="table-home-print">
+                    <div class="colum-home-print">
+                        {dataprint.map(run => {
+                            return (
+                                    <p className="colum-components-home-print">
+                                    Nombre: {run.name}
+                                    </p>
+                                    )
+                        })}
+                    </div>
+                    <div class="colum-home-print">
+                        {dataprint.map(run => {
+                            return (
+                                    <p className="colum-components-home-print">
+                                    Email: {run.email}
+                                    </p>
+                                    )
+                        })}
+                    </div>
+                    <div class="colum-home-print">
+                        {dataprint.map(run => {
+                            return (
+                                    <p className="colum-components-home-print">
+                                    Id: {run._id}
+                                    </p>
+                                    )
+                        })}
+                    </div>
+                    <div>
+
+
+                    </div>
+                </div>
+
             </div>
         </div>
 

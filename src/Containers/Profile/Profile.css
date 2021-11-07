@@ -47,3 +47,28 @@ margin-top: 10em;
     margin: auto;
     margin-top: 10em;
 }
+
+.sendButton {
+    height: 4em;
+    width: 100%;
+    background-color: green;
+    color: white;
+    border-radius: 0.2em;
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}
+.deleteButton {
+    height: 4em;
+    width: 100%;
+    background-color: rgb(141, 1, 1);
+    color: white;
+    border-radius: 0.2em;
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}
