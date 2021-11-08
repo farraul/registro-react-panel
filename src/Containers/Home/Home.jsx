@@ -60,7 +60,7 @@ const Home = () => {
                     <div class="colum-home-print">
                         {dataprint.map(run => {
                             return (
-                                    <p className="colum-components-home-print">
+                                    <p className="colum-components-home-print" key={run._id}>
                                     Nombre: {run.name}
                                     </p>
                                     )
@@ -69,7 +69,7 @@ const Home = () => {
                     <div class="colum-home-print">
                         {dataprint.map(run => {
                             return (
-                                    <p className="colum-components-home-print">
+                                    <p className="colum-components-home-print" key={run._id}>
                                     Email: {run.email}
                                     </p>
                                     )
@@ -78,7 +78,7 @@ const Home = () => {
                     <div class="colum-home-print">
                         {dataprint.map(run => {
                             return (
-                                    <p className="colum-components-home-print">
+                                    <p className="colum-components-home-print" key={run._id}>
                                     Id: {run._id}
                                     </p>
                                     )
