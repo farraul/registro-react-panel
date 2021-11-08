@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
-
 import './Home.css';
 
 const Home = () => {
-
 
     const history = useNavigate();
 /*
@@ -15,6 +12,8 @@ const Home = () => {
             password: credentials.clave
         };*/
         const [msgError, setmsgError] = useState("");
+        const [dataprint, setDatosPerfil] = useState(JSON.parse(localStorage.getItem("data_api")));
+
         const [user, setUser] = useState({
             id: '',
             name: '',
@@ -22,7 +21,7 @@ const Home = () => {
             telf: ''
         });
 
-      
+      const getdata_api=() =>{
         try {
 
         let res =  axios.get("https://app-movies-mongoose.herokuapp.com/usuario/");
@@ -32,7 +31,7 @@ const Home = () => {
                 const getdata = res.data;
                
                 localStorage.setItem("data_api", JSON.stringify(getdata));
-                    
+                setDatosPerfil(getdata);   
             })
 
             //localStorage.setItem("datosLogin", JSON.stringify(res.data));
@@ -43,8 +42,11 @@ const Home = () => {
             setmsgError("Error al logearmeee"); 
 
         }
-        const [dataprint, setDatosPerfil] = useState(JSON.parse(localStorage.getItem("data_api")));
+    }
+        
+
         useEffect(() => {
+            getdata_api();
             console.log("imprimir data",dataprint) //ese se hace la primera vez que carga el componente
         }, [])
     

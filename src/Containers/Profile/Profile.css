@@ -59,6 +59,7 @@ margin-top: 10em;
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
+    cursor: pointer;
 }
 .deleteButton {
     height: 4em;
@@ -71,4 +72,5 @@ margin-top: 10em;
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
+    cursor: pointer;
 }

@@ -63,6 +63,13 @@ const Profile = () => {
                 let res = await axios.delete(`https://app-movies-mongoose.herokuapp.com/usuario/${datosPerfil._id}`, body);
                 //Guardado de datos en localStorage
                 console.log("dentro del try", res);
+                localStorage.removeItem("datosLogin");
+                setDatosPerfil({
+                    id: '',
+                    name: '',
+                    email: '',
+                    telf: ''
+                });
                 
             } catch (error) {
     
@@ -86,12 +93,37 @@ const Profile = () => {
 
 
     return (
-        <div className="designProfile">
+        <div className="designProfile">{/* no hay datos*/} 
+           {!datosPerfil
+                ? <div id="table-profile">
+                <h1>Datos personales</h1>
+                <div className="table-row">
+                    <div className="table-field-1">Nombre:</div>
+                    <div>{' '}</div> {/*igual que el de abajo, el "?" es el if, el ":" es un else, si hay algo dentro imprime sino lo otro (condicional ternario)  */}
+                </div>
+                <br />
+                <div className="table-row">
+                    <div className="table-field-1">Email:</div>
+                    <div>{' '}</div>
+                </div>
+                <br />
+                <div className="table-row">
+                    <div className="table-field-1">Teléfono:</div>
+                    <div>{' '}</div>
+                </div>
+                <br />
+                <div className="table-row">
+                    <div className="table-field-1">Id:</div>
+                    <div>{' '}</div>
+                </div>
+            </div>
+
+           :  
             <div id="table-profile">
                 <h1>Datos personales</h1>
                 <div className="table-row">
                     <div className="table-field-1">Nombre:</div>
-                    <div>{datosPerfil.name}</div>
+                    <div>{datosPerfil.name ? datosPerfil.name : ' '}</div> {/*igual que el de abajo, el "?" es el if, el ":" es un else, si hay algo dentro imprime sino lo otro (condicional ternario)  */}
                 </div>
                 <br />
                 <div className="table-row">
@@ -109,6 +141,8 @@ const Profile = () => {
                     <div>{datosPerfil._id}</div>
                 </div>
             </div>
+
+            }
    
 
             {/*Parte de actualizar */}
