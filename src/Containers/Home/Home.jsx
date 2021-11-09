@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Home.css';
+
 
 const Home = () => {
 
@@ -52,9 +52,9 @@ const Home = () => {
     
        
     return (
-        <div>
+        <div className='container-home pt-2'>
             <div>
-                <h1>últimos usuarios registrados</h1>
+                <h1 className='h1-home'>últimos usuarios registrados</h1>
                 
                 <div id="table-home-print">
                     <div class="colum-home-print">

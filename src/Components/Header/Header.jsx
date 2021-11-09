@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Header.css';
 import Boton from '../Boton/Boton';
 import logo from '../../images/logo-raul.png';
 
@@ -14,9 +13,9 @@ const Header = () => {
     return(
         <div className="designHeader">
             <div>
-                <img id="logo" src={logo} alt="logo" onClick={()=>llevame()} />
+                <img className="logo" src={logo} alt="logo" onClick={()=>llevame()} />
             </div>
-            <div id="menu">
+            <div className="menu">
                 <Boton destino="Home" url="/"/>
                 <Boton destino="Films" url="/films"/>
                 <Boton destino="Perfil" url="/profile"/>

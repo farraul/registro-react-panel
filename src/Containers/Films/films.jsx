@@ -3,10 +3,9 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import pocima from '../../images/progress.gif';
 import {useNavigate} from 'react-router-dom';
-import './films.css';
+
 
 const Films = () => {
-
     let navigate = useNavigate();
 
     const [peliculas, setPeliculas] = useState([]);
@@ -15,12 +14,10 @@ const Films = () => {
 
         setTimeout(()=>{
             traePeliculas();
-        },1000);
-
+        },2000);
     },[]);
 
     useEffect(()=>{
-        
     });
 
     const traePeliculas = async () => {
@@ -55,7 +52,7 @@ const Films = () => {
     } else {
 
         return (
-            <div>
+            <div className="container-loader">
                 <img className="loader" src={pocima}/>
             </div>
         )

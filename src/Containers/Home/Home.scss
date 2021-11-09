@@ -24,3 +24,17 @@ div#table-home-print {
     padding: 15px 30px;
     margin: 0;
 }
+
+.container-home{
+    height: calc(100vh - 7em);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url(../../images/background_home.jpg);
+    background-size: cover;
+
+}
+.h1-home{
+    text-align: center;
+    color:white;
+}
+p.colum-components-home-print {
+    background-color: #ffffff8a;
+}
