@@ -18,6 +18,7 @@ const Header = () => {
             </div>
             <div id="menu">
                 <Boton destino="Home" url="/"/>
+                <Boton destino="Films" url="/films"/>
                 <Boton destino="Perfil" url="/profile"/>
                 <Boton destino="Registro" url="/register"/>
                 <Boton destino="Login" url="/login"/>

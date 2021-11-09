@@ -8,6 +8,8 @@ import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login';
 import Profile from './Containers/Profile/Profile';
 import Register from './Containers/Register/Register';
+import Films from './Containers/Films/films';
+import Film from './Containers/Film/film';
 
 function App() {
   return (
@@ -18,10 +20,12 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/films" element={<Films/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/film" element={<Film/>}/>
 
 
         </Routes>
