@@ -12,7 +12,7 @@ const Profile = () => {
     const [datosPerfil, setDatosPerfil] = useState(JSON.parse(localStorage.getItem("datosLogin")));
 
     useEffect(() => {
-        console.log(datosPerfil) //ese se hace la primera vez que carga el componente
+        console.log("datos perfil",datosPerfil) //ese se hace la primera vez que carga el componente
     }, [])
 
 

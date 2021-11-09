@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Boton from '../Boton/Boton';
-import logo from '../../images/logo-raul.png';
+import logo from '../../images/raul-logo.png';
 
 
 const Header = () => {

@@ -54,8 +54,10 @@ const Home = () => {
     return (
         <div className='container-home pt-2'>
             <div>
-                <h1 className='h1-home'>últimos usuarios registrados</h1>
-                
+                <h1 className='h1-home mt-2'>Tu plataforma de peliculas</h1>
+
+
+                <p className="text-center mt-10">últimos usuarios registrados </p>
                 <div id="table-home-print">
                     <div class="colum-home-print">
                         {dataprint.map(run => {

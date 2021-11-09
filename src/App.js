@@ -21,11 +21,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/films" element={<Films/>}/>
+          <Route path="/film" element={<Film/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/profile" element={<Profile/>}/>
-          <Route path="/film" element={<Film/>}/>
+         
 
 
         </Routes>

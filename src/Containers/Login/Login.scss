@@ -10,7 +10,7 @@
 .sendButton {
     height: 4em;
     width: 100%;
-    background-color: green;
+    background-color: rgb(128, 0, 0);
     color: white;
     border-radius: 0.2em;
     display: flex;
@@ -30,4 +30,7 @@ div#style-div-form-login {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.error {
+    color: white;
 }

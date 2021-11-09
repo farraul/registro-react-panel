@@ -22,7 +22,8 @@ const Films = () => {
 
     const traePeliculas = async () => {
             let res = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=51c1099989a6923f3d12154210fc2cf7&language=en-US&page=1");
-            setPeliculas(res.data.results);       
+            setPeliculas(res.data.results);
+            console.log("datos",res.data.results);       
     };
 
     const escogePelicula = (peliculaEscogida) => {
@@ -32,7 +33,7 @@ const Films = () => {
         navigate("/film");
     }
 
-    if(peliculas[1]?.title){
+    if(peliculas[1]?.title){ //"?" significa que si falla que vaya al else, sino se bloquea
 
         return (
             <div className="displayPeliculas">
