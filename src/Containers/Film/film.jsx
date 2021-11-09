@@ -12,7 +12,11 @@ const Film = () => {
     useEffect(() => {
         console.log(peli);
     }, []);
-
+    const [token, setoken] = useState(JSON.parse(localStorage.getItem("token")));
+    const [infouser, seinfouser] = useState(JSON.parse(localStorage.getItem("datosLogin")));
+    console.log("info user: ", infouser);
+    console.log("token: ", token);
+    console.log("info user: ", infouser._id);
 
 
     //crear nuevo pedido
@@ -20,10 +24,16 @@ const Film = () => {
         //console.log("la id de la peli que voy a pedir es......",peli.id);
             //Generación del body
             let body = {
-                numero: 555,
-                dependiente: "dependientedepeueba",
-                fecha_recogida: "11/22/1995",
-                fecha_entrega: "12/22/1995",
+
+
+                nombre_cliente: infouser.name,
+                email_cliente: infouser.email,
+                id_cliente: infouser._id,
+                name_film: peli.title,
+                id_film: peli.id,
+                name_original_film: peli.original_title,
+                fecha_recogida: new Date(),
+                
 
                 /*numero: user.name,
                 dependiente: user.email,
@@ -36,7 +46,11 @@ const Film = () => {
             
             
             try {
-                let res = await axios.post("https://app-movies-mongoose.herokuapp.com/pedido/", body);
+                let res = await axios.post("https://app-movies-mongoose.herokuapp.com/pedido/", body, {
+                    headers:{
+                        'Authorization': `Bearer ${token}` 
+                    }
+                });
                 console.log("imprimir res: ",res)
                 //Guardado de datos en localStorage
             

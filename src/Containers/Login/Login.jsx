@@ -35,7 +35,10 @@ const Login = () => {
             console.log("imprimir ", res);
             //localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
              localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
+             localStorage.setItem("token", JSON.stringify(res.data.token));
+
              console.log("toda la info",res);
+             console.log("token: ",res.data.token);
             
             
 
