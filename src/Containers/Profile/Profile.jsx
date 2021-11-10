@@ -5,14 +5,19 @@ import axios from 'axios';
 
 
 
-const Profile = () => {
+const Profile = (props) => {
 
     {/*imprimir datos personales*/}
     //Hook 
-    const [datosPerfil, setDatosPerfil] = useState(JSON.parse(localStorage.getItem("datosLogin")));
+    //const [datosPerfil, setDatosPerfil] = useState(JSON.parse(localStorage.getItem("datosLogin")));
+    //props.credentials?.usuario?.nombre
+    //<p>{props.credentials.user?.name}</p>
+
+
+
 
     useEffect(() => {
-        console.log("datos perfil",datosPerfil) //ese se hace la primera vez que carga el componente
+        console.log("imprimimos props: ",props);
     }, [])
 
 
@@ -42,7 +47,7 @@ const Profile = () => {
         console.log("ENVIANDO AL BACKEND ESTO....",body);
         
         try {
-            let res = await axios.put(`https://app-movies-mongoose.herokuapp.com/usuario/${datosPerfil._id}`, body);
+            let res = await axios.put(`https://app-movies-mongoose.herokuapp.com/usuario/${props.credentials}`, body);
             //Guardado de datos en localStorage
             console.log("dentro del try", res);
             
@@ -60,7 +65,7 @@ const Profile = () => {
             console.log("ENVIANDO AL BACKEND ESTO....",body);
         
             try {
-                let res = await axios.delete(`https://app-movies-mongoose.herokuapp.com/usuario/${datosPerfil._id}`, body);
+                let res = await axios.delete(`https://app-movies-mongoose.herokuapp.com/usuario/${props.credentials}`, body);
                 //Guardado de datos en localStorage
                 console.log("dentro del try", res);
                 localStorage.removeItem("datosLogin");
@@ -168,5 +173,7 @@ const Profile = () => {
     )
 };
 
-export default Profile;
 
+export default connect((state)=>({
+    credentials: state.credentials
+}))(Profile);

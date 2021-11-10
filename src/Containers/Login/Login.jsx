@@ -1,12 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { LOGIN } from '../../redux/types';
+
+import './Login.scss';
 
 
-
-
-const Login = () => {
+const Login = (props) => {
 
     const history = useNavigate();
 
@@ -33,26 +36,24 @@ const Login = () => {
 
             let res = await axios.post("https://app-movies-mongoose.herokuapp.com/api/signin", body);
             console.log("imprimir ", res);
-            //localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
-             localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
-             localStorage.setItem("token", JSON.stringify(res.data.token));
+            // localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
+            // localStorage.setItem("token", JSON.stringify(res.data.token));
 
              console.log("toda la info",res);
              console.log("token: ",res.data.token);
             
+               //Guardamos en REDUX
+            let datos = res.data;
             
-
-            setTimeout(() => {
+            props.dispatch({type:LOGIN,payload:datos});
+            
+             setTimeout(() => {
                 history("/profile");
             }, 1000);
-        } catch (error) {
+            } catch (error) {
             setmsgError("Error al logearmeee");
-          
-
+            }
         }
-
-    }
-
 
     return (
 
@@ -69,4 +70,6 @@ const Login = () => {
     )
 };
 
-export default Login;
+//export default Login;
+
+export default connect()(Login);
