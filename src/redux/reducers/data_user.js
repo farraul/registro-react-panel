@@ -2,10 +2,11 @@ import {LOGIN, LOGOUT} from '../types';
 
 const initialState = {
     token : '',
-    usuario : {}
+    user : {} //ponia usuario
 };
 
 const data_user = (state = initialState, action) => {
+    
     switch(action.type){
         //Ejemplo de añadido de datos
         case LOGIN :

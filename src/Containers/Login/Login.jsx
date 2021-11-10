@@ -19,6 +19,7 @@ const Login = (props) => {
 
     //Handler o manejador
     const manejadorInputs = (e) => {
+        console.log("e: ",e);
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
         /*console.log("e.target.name::: ", e.target.name)
         console.log("e.target.value::: ", e.target.value)*/
@@ -39,14 +40,14 @@ const Login = (props) => {
             // localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
             // localStorage.setItem("token", JSON.stringify(res.data.token));
 
-             console.log("toda la info",res);
-             console.log("token: ",res.data.token);
             
                //Guardamos en REDUX
             let datos = res.data;
             
             props.dispatch({type:LOGIN,payload:datos});
-            
+           console.log("datos:",datos);
+
+
              setTimeout(() => {
                 history("/profile");
             }, 1000);

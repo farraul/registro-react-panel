@@ -1,7 +1,7 @@
 .table-row {
     display: flex;
 }
-div#table-profile {
+.table-profile {
     width: 25em;
     margin: auto;
     margin-top: 10em;
@@ -25,13 +25,16 @@ div#table-profile {
 }
 
 
-#container-update-profile{
+.container-update-profile{
 width: 20em;
 margin: auto;
 margin-top: 10em;
 }
 .designProfile {
     display: flex;
+    max-width: 74em;
+    margin: auto;
+    padding: 0px 5em;
 }
 
 .input-form-update{
