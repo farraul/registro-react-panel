@@ -3,15 +3,20 @@ import { getDefaultNormalizer } from '@testing-library/dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 
 
-const Film = () => {
 
+const Film = (props) => {
     const [peli, setPeli] = useState(JSON.parse(localStorage.getItem("choosenFilm")));
 
     useEffect(() => {
+        console.log("props.data_user?.user?.name:  ",props.data_user.user.name);
+
         console.log(peli);
     }, []);
+
+
     const [token, setoken] = useState(JSON.parse(localStorage.getItem("token")));
     const [infouser, seinfouser] = useState(JSON.parse(localStorage.getItem("datosLogin")));
     console.log("info user: ", infouser);
@@ -73,6 +78,8 @@ const Film = () => {
     )
 }
 
+export default connect((state)=>({
+    data_user: state.data_user
+}))(Film);
 
 
-export default Film;

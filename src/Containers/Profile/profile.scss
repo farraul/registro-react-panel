@@ -28,11 +28,11 @@
 .container-update-profile{
 width: 20em;
 margin: auto;
-margin-top: 10em;
+margin-top: 6em;
 }
 .designProfile {
     display: flex;
-    max-width: 74em;
+    max-width: 85em;
     margin: auto;
     padding: 0px 5em;
 }
@@ -44,7 +44,7 @@ margin-top: 10em;
     height: 3em;
     align-items: center;
     width: 20em;
-    padding: 0px 27px 0px 0px ;
+    padding: 5px 10px 5px 18px;
 }
 .table-update{
     width: 20em;
@@ -53,7 +53,7 @@ margin-top: 10em;
 }
 
 .sendButton {
-    height: 4em;
+    height: 3em;
     width: 100%;
     background-color: green;
     color: white;
@@ -64,9 +64,10 @@ margin-top: 10em;
     align-items: center;
     font-size: 1.2em;
     cursor: pointer;
+    border-radius: 30px;
 }
 .deleteButton {
-    height: 4em;
+    height: 3em;
     width: 100%;
     background-color: rgb(141, 1, 1);
     color: white;
@@ -77,6 +78,7 @@ margin-top: 10em;
     align-items: center;
     font-size: 1.2em;
     cursor: pointer;
+    border-radius: 30px;
 }
 .user-logout{
 width: 100%;
@@ -88,12 +90,20 @@ justify-content: center;
 align-items: center;
 color: white;
 border-radius: 30px;
+font-size:1.2em;
 }
 .main-container{
     display: flex;
 }
 .img-profile {
-    width: 6em;
-    display: block;
-    margin: auto;
+    width: 4em;
+}
+.img-h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.print-fields {
+    padding: 0px 20px;
 }

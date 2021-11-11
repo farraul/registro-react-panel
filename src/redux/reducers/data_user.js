@@ -1,4 +1,4 @@
-import {LOGIN, LOGOUT} from '../types';
+import {LOGIN, LOGOUT, UPDATE_USER} from '../types';
 
 const initialState = {
     token : '',
@@ -16,6 +16,8 @@ const data_user = (state = initialState, action) => {
         case LOGOUT : 
             return initialState;
             
+        case UPDATE_USER:
+            return{ ...state, user: action.payload}; //emn user metes en este caso el body
         default :
             return state
     }

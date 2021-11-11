@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { LOGOUT } from '../../redux/types';
+import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import './profile.scss';
 import profile from '../../images/profile.png';
 
@@ -11,6 +12,8 @@ import profile from '../../images/profile.png';
 const Profile = (props) => {
     
     useEffect(() => {
+        console.log("props.data_user?.user?.name:  ",props.data_user.user.name);
+
     }, [])
 
 
@@ -19,8 +22,10 @@ const Profile = (props) => {
         //vaciamos redux. Así ya no estamos logueados
         props.dispatch({type:LOGOUT});
     }
-    
-    
+    const history = useNavigate();
+    const logIn = () => {
+        history("/login");
+    }
 
     {/*modificar datos*/}
     //Hooks
@@ -40,10 +45,10 @@ const Profile = (props) => {
     {
         //Generación del body
         let body = {
-            id: props.data_user?.user?._id,
+            _id: props.data_user?.user?._id,
             name: user.name,
             email: user.email,
-            telf: user.telf,
+            telf: user.telf
         }
         //Conexion a axios y envio de datos
         console.log("ENVIANDO AL BACKEND ESTO....",body);
@@ -52,10 +57,19 @@ const Profile = (props) => {
             let res = await axios.put(`https://app-movies-mongoose.herokuapp.com/usuario/${props.data_user?.user?._id}`, body);
             //Guardado de datos en localStorage
             console.log("dentro del try", res);
+            //if(res?.data){
+            
+            props.dispatch({type:UPDATE_USER,payload:body});
+        
         } catch (error) {
 
             console.log("error de front", error);
         }
+
+        
+
+
+
     }
     {/*función borrar un usuario*/}
     const deleteuser = async () =>{
@@ -103,29 +117,31 @@ const Profile = (props) => {
             <div className="main-container">        
              <div className="designProfile">  
                     <div id="table-profile">
-                    <img className="img-profile" src={profile} alt="profile"/>
-
-                        <h1>Datos personales</h1>
+                        <div className="img-h1">
+                            <img className="img-profile" src={profile} alt="profile"/>
+                            <h1>Datos personales</h1>
+                        </div>
+                        
                         <div className="table-row">
                             <div className="table-field-1">Nombre:</div>
                 
-                            <div>{props.data_user?.user?.name}</div>
+                            <div className="print-fields">{props.data_user?.user?.name}</div>
                         </div>
                         
                         <br />
                         <div className="table-row">
                             <div className="table-field-1">Email:</div>
-                            <div>{props.data_user?.user?.email}</div>
+                            <div className="print-fields">{props.data_user?.user?.email}</div>
                         </div>
                         <br />
                         <div className="table-row">
                             <div className="table-field-1">Teléfono:</div>
-                            <div>{props.data_user?.user?.telf}</div>
+                            <div className="print-fields">{props.data_user?.user?.telf}</div>
                         </div>
                         <br />
                         <div className="table-row">
                             <div className="table-field-1">Id:</div>
-                            <div>{props.data_user?.user?._id}</div>
+                            <div className="print-fields">{props.data_user?.user?._id}</div>
                         </div>
                         <div className="user-logout" onClick={()=>logOut()}>LOGOUT</div>
                     </div>
@@ -188,7 +204,7 @@ const Profile = (props) => {
                                 <div className="table-field-1">Id:</div>
                                 <div></div>
                             </div>
-                            <div className="user-logout" onClick={()=>logOut()}>LOGOUT</div>
+                            <div className="user-logout" onClick={()=>logIn()}>Login</div>
                         </div>
                      </div>
                     )
@@ -206,7 +222,7 @@ const Profile = (props) => {
 
                 {/*<pre>{JSON.stringify(user, null, 2)}</pre>*/}
                 <div className="table-update">
-                    <h1>Actualizar</h1>
+                    <h1>Actualizaraaa</h1>
                     <input className="input-form-update" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
                     <br />
                     <input className="input-form-update" type='email' name='email' title='email' onChange={userHandler} lenght='30' placeholder='Email' />
