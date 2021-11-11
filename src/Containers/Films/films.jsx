@@ -3,9 +3,12 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import pocima from '../../images/progress.gif';
 import {useNavigate} from 'react-router-dom';
+import {TAKE_FILM} from '../../redux/types';
+import { connect } from 'react-redux';
+import data_user from '../../redux/reducers/data_user';
 
 
-const Films = () => {
+const Films = (props) => {
     let navigate = useNavigate();
 
     const [peliculas, setPeliculas] = useState([]);
@@ -18,16 +21,22 @@ const Films = () => {
     },[]);
 
     useEffect(()=>{
+        console.log("props.data_user:  ",props.data_user);
     });
 
     const traePeliculas = async () => {
             let res = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=51c1099989a6923f3d12154210fc2cf7&language=en-US&page=1");
             setPeliculas(res.data.results);
-            console.log("datos",res.data.results);       
+            console.log("datos",res.data.results); 
+
+
     };
 
-    const escogePelicula = (peliculaEscogida) => {
-        localStorage.setItem("choosenFilm", JSON.stringify(peliculaEscogida));
+    const escogePelicula = (data_film) => {
+      
+        console.log("datos:",data_film);
+        props.dispatch({type:TAKE_FILM,payload:data_film});
+          
 
         //redirigire a el perfil de la película....
         navigate("/film");
@@ -62,4 +71,7 @@ const Films = () => {
     
 }
 
-export default Films;
+
+export default connect((state)=>({
+    data_user: state.data_user
+}))(Films);
