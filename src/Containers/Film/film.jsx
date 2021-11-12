@@ -18,8 +18,7 @@ const Film = (props) => {
 
     }, []);
 
-
-
+    const [buttonrent, setmsgButtonrent] = useState(  <button  className="button-rent-fiml mt-2" onClick={()=> order()}>ALQUILAR LA PELICULA</button>);
 
     //crear nuevo pedido
     const order = async() => {
@@ -57,28 +56,12 @@ const Film = (props) => {
                     }
                 });
                 console.log("imprimir res: ",res)
-                //Guardado de datos en localStorage
-               
                    // history("/films");
             
-        
-                   return(
-                       console.log("entre para imprimir div"),
-                    <div className="impresionnueva"><p>Pelicula alquilada</p></div>
-                    )
-              
-                
+                   setmsgButtonrent("✓ Pelicula alquilada"); 
             } catch (error) {
                 console.log(error)
             }
-
-          
-            
-
-
-         
-
-
     }
 
 
@@ -89,7 +72,7 @@ const Film = (props) => {
             <div><img alt={props.data_film.title} className="cartel"src={`https://image.tmdb.org/t/p/original/${props.data_film.poster_path}`} /></div>
             <div><p>{props.data_film.release_date}</p></div>
             <div><p>{props.data_film.overview}</p></div>
-            <button onClick={()=> order()}>ALQUILAR LA PELICULA</button>
+            <div className="container-rented mt-1">{buttonrent}</div>
         </div>
        
           )
