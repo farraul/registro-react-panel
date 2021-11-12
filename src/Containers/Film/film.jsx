@@ -11,6 +11,7 @@ import data_user from '../../redux/reducers/data_user';
 
 
 const Film = (props) => {
+    const history = useNavigate();
 
     useEffect(() => {
         console.log("props.data_user:  ",props.data_user);
@@ -34,6 +35,9 @@ const Film = (props) => {
                 id_film: props.data_film.id,
                 name_original_film: props.data_film.original_title,
                 fecha_recogida: new Date(),
+                release_data: props.data_film.release_date,
+                overview: props.data_film.overview,
+                release_date: props.data_film.release_date,
                 
 
                 /*numero: user.name,
@@ -54,24 +58,42 @@ const Film = (props) => {
                 });
                 console.log("imprimir res: ",res)
                 //Guardado de datos en localStorage
+               
+                   // history("/films");
             
-               // history("/profile");
         
+                   return(
+                       console.log("entre para imprimir div"),
+                    <div className="impresionnueva"><p>Pelicula alquilada</p></div>
+                    )
+              
                 
             } catch (error) {
                 console.log(error)
             }
+
+          
+            
+
+
+         
+
+
     }
+
+
 
     return (
         <div className="profilePelicula">
-            <div>{data_film.original_title}</div>
-            <div><img alt={data_film.id} className="cartel"src={`https://image.tmdb.org/t/p/original/${props.data_film.poster_path}`} /></div>
-            <div><p>{data_film.release_date}</p></div>
-            <div><p>{data_film.overview}</p></div>
+            <div><p>{ props.data_film.title}</p></div>
+            <div><img alt={props.data_film.title} className="cartel"src={`https://image.tmdb.org/t/p/original/${props.data_film.poster_path}`} /></div>
+            <div><p>{props.data_film.release_date}</p></div>
+            <div><p>{props.data_film.overview}</p></div>
             <button onClick={()=> order()}>ALQUILAR LA PELICULA</button>
         </div>
-    )
+       
+          )
+ 
 }
 
 export default connect((state)=>({
