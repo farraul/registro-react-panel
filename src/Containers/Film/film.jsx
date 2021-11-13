@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import data_film from '../../redux/reducers/data_film';
-import data_user from '../../redux/reducers/data_user';
+
 
 
 
@@ -55,10 +55,24 @@ const Film = (props) => {
                         'Authorization': `Bearer ${props.data_user.token}` 
                     }
                 });
-                console.log("imprimir res: ",res)
-                   // history("/films");
+
+                /*let datos = res.data;
+                props.dispatch({type:SAVEFILM,payload:datos});
+                console.log("datos:",datos);*/
+        
+
+               
+                 
             
-                   setmsgButtonrent("✓ Pelicula alquilada"); 
+                   setmsgButtonrent("✓ Pelicula alquilada");
+                   
+                   
+                   setTimeout(()=>{
+                    history("/profile");
+                },2000);
+            
+                 
+
             } catch (error) {
                 console.log(error)
             }

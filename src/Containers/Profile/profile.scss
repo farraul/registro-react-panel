@@ -28,13 +28,14 @@
 .container-update-profile{
 width: 20em;
 margin: auto;
-margin-top: 6em;
+margin-top: 0.5em;
 }
 .designProfile {
     display: flex;
-    max-width: 85em;
+    max-width: 27em;
     margin: auto;
-    padding: 0px 5em;
+    padding: 0px 0em;
+    flex-direction: column;
 }
 
 .input-form-update{
@@ -94,6 +95,7 @@ font-size:1.2em;
 }
 .main-container{
     display: flex;
+    flex-direction: column;
 }
 .img-profile {
     width: 4em;
@@ -106,4 +108,28 @@ font-size:1.2em;
 }
 .print-fields {
     padding: 0px 20px;
+}
+.main-container-one {
+    display: flex;
+    padding: 3em 5em;
+}
+tr, td {
+    color:white;
+}
+table.table-film-reserve {
+    margin-top: 3em;
+    
+    border-radius: 10px;
+    padding: 0.5em;
+    padding: 0.5em;
+    border: 1px solid red;
+}
+td.td-one {
+    width: 6em;
+    display: flex;
+    height: 100%;
+    padding: 1em;
+}
+td.td-two {
+    padding: 1em;
 }

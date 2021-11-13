@@ -21,6 +21,7 @@ const Profile = (props) => {
     const logOut = () => {
         //vaciamos redux. Así ya no estamos logueados
         props.dispatch({ type: LOGOUT });
+        history("/login");
     }
     const history = useNavigate();
     const logIn = () => {
@@ -114,6 +115,7 @@ const Profile = (props) => {
 
         return (
             <div className="main-container">
+                <div className="main-container-one">
                 <div className="designProfile">
                     <div id="table-profile">
                         <div className="img-h1">
@@ -140,17 +142,40 @@ const Profile = (props) => {
                         <br />
                         <div className="table-row">
                             <div className="table-field-1">Id:</div>
+                           
                             <div className="print-fields">{props.data_user?.user?._id}</div>
                         </div>
                         <div className="user-logout" onClick={() => logOut()}>LOGOUT</div>
                     </div>
+                    <div>
+                    <h2>Pelicula reservada</h2>
+                    <table class="table-film-reserve">
+                                <tr className="tabla-tr">
+                                    <td className="td-one">Titulo:</td>
+                                    <td className="td-two">{props?.data_film?.original_title}</td>     
+                                </tr>
+                                <tr className="tabla-tr">
+                                    <td className="td-one">Resumen:</td>
+                                    <td className="td-two">{props?.data_film?.overview}</td>
+                                </tr>
+                                <tr className="tabla-tr">
+                                    <td className="td-one">Fecha publicación:</td>
+                                    <td className="td-two">{props.data_film.release_date}</td>
+                                </tr>
+
+
+                                
+
+                                </table>
+                    <div className="print-fields"><p></p></div> 
+                </div>
                 </div>
 
                 <div className="container-update-profile">
 
                     {/*<pre>{JSON.stringify(user, null, 2)}</pre>*/}
                     <div className="table-update">
-                        <h1>Actualizar</h1>
+                        <h2>Actualizar</h2>
                         <input className="input-form-update" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
                         <br />
                         <input className="input-form-update" type='email' name='email' title='email' onChange={userHandler} lenght='30' placeholder='Email' />
@@ -162,6 +187,8 @@ const Profile = (props) => {
                         {/* <div className="deleteButton" onClick={() => deletealluser()}>Borrar todos usuario db</div> */}
                     </div>
                 </div>
+                </div>
+               
             </div>
 
 
@@ -204,5 +231,6 @@ const Profile = (props) => {
 
 
 export default connect((state) => ({
-    data_user: state.data_user
+    data_user: state.data_user,
+    data_film: state.data_film,
 }))(Profile);
