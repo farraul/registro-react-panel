@@ -38,3 +38,28 @@ div#table-home-print {
 p.colum-components-home-print {
     background-color: #ffffff8a;
 }
+
+
+
+
+div#solutions {
+    width: 15em;
+    height: 3em;
+    background-color: wheat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 39px;
+}
+.sendButton-rearch {
+    background-color: unset;
+    color: white;
+    border: 1pxsolid;
+    width: 12em;
+    text-align: center;
+    border-radius: 21px;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
