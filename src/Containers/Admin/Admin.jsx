@@ -12,7 +12,7 @@ import profile from '../../images/profile.png';
 const Admin = (props) => {
 
     const [datosperfil, setDatosPerfil] = useState("");
-    const [pedidos, setpedidos] = useState("");
+    const [datospedidos, setdatospedidos] = useState("");
 
     useEffect(() => {
         takeusers();
@@ -34,9 +34,9 @@ const Admin = (props) => {
     };
     const takepedidos = async () => {
         try {
-            let res_pedido = await axios.get("https://app-movies-mongoose.herokuapp.com/pedido/");
-            setDatosPerfil(res_pedido.data);
-            console.log("res: ", res_pedido)
+            let res_pedido = await axios.get("https://app-movies-mongoose.herokuapp.com/pedido");
+            setdatospedidos(res_pedido.data);
+            console.log("res pedidos: ", res_pedido)
         } catch (error) {
             console.log(error);
         }
@@ -50,7 +50,7 @@ const Admin = (props) => {
         return (
             <div className="main-container">
                 <div className="main-container-one">
-                    <h1>Panel de control admin</h1>
+                    <h1 className="admin-h1">Panel de control admin</h1>
 
 
                     <div className="">
@@ -92,38 +92,45 @@ const Admin = (props) => {
                     <div>
 
                         <div>
-                            <p className="text-center mt-10">Últimos usuarios registrados </p>
-                            {datosperfil.length > 0 &&
+                            <p className="text-center mt-10">Últimos pedidos</p>
+                            {datospedidos.length > 0 &&
                                 <div id="table-home-print">
                                     <div className="colum-home-print">
+                                        {datospedidos.map(run => {
+                                            return (
+                                            <div className="table-print-pedidos">
+                                                <div className="table-home-print-n-order">
+                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                    Número pedido: {run._id}
+                                                    </p>
+                                                </div>
 
-                                        {datosperfil.map(run => {
-                                            return (
-                                                <p className="colum-components-home-print" key={run._id}>
-                                                    Nombre: {run.name}
-                                                </p>
+                                                <div>
+                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                        
+                                                     Fecha pedido: {run.createdAt}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                     Nombre cliente: {run.nombre_cliente}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                     Email cliente: {run.email_cliente}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                     Pelicula alquilada: {run.name_film}
+                                                    </p>
+                                                </div>
+                                            </div>
                                             )
                                         })}
                                     </div>
-                                    <div className="colum-home-print">
-                                        {datosperfil.map(run => {
-                                            return (
-                                                <p className="colum-components-home-print" key={run._id}>
-                                                    Email: {run.email}
-                                                </p>
-                                            )
-                                        })}
-                                    </div>
-                                    <div className="colum-home-print">
-                                        {datosperfil.map(run => {
-                                            return (
-                                                <p className="colum-components-home-print" key={run._id}>
-                                                    Id: {run._id}
-                                                </p>
-                                            )
-                                        })}
-                                    </div>
-
+                                   
                                 </div>
                             }
 
