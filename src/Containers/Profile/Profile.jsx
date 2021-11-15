@@ -91,6 +91,9 @@ const Profile = (props) => {
                  telf: ''
              });*/
 
+             props.dispatch({ type: LOGOUT });
+             history("/login");
+
         } catch (error) {
             console.log("error de front", error);
         }
