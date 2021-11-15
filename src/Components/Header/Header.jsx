@@ -22,7 +22,9 @@ const Header = (props) => {
                { props.data_user?.user?._id ? <Boton destino="Perfil" url="/profile"/>: null}
                { !props.data_user?.user?._id && <Boton destino="Registro" url="/register"/> }
                { /*props.data_user?.user?._id ?null :<Boton destino="Registro" url="/register"/>*/ }
-                <Boton destino="Login" url="/login"/>
+               { !props.data_user?.user?._id && <Boton destino="Login" url="/login"/>}
+                { props.data_user?.user?._id ? <Boton destino="Admin" url="/admin"/>: null}
+
                 
             </div>
         </div>

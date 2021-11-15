@@ -65,7 +65,8 @@ const Register = () => {
             //Guardado de datos en localStorage
             localStorage.setItem("datosLogin", JSON.stringify(res.data.user));
             setmsgError("Usuario registrado con éxito");
-            history("/profile");
+     
+            history("/login");
     
             
         } catch (error) {
