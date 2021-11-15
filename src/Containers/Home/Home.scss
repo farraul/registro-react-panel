@@ -27,7 +27,7 @@ div#table-home-print {
 
 .container-home{
     height: calc(100vh - 7em);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url(../../images/background_home.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.815),rgba(0, 0, 0, 0.842)) ,url(../../images/background_home.jpg);
     background-size: cover;
 
 }
@@ -43,13 +43,16 @@ p.colum-components-home-print {
 
 
 div#solutions {
-    width: 15em;
-    height: 3em;
-    background-color: wheat;
+    height: fit-content;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 39px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 4em;
+    padding: 0px 11em;
 }
 .sendButton-rearch {
     background-color: unset;
@@ -63,3 +66,39 @@ div#solutions {
     align-items: center;
     justify-content: center;
 }
+img.image-films {
+    width: 100%;
+}
+
+input.imput-search {
+    height: 3em;
+    margin: auto;
+    width: 23em;
+    color: black;
+    text-align: center;
+    display: flex;
+}
+.peli {
+    width: 10em;
+    height: 21em;
+    background-color: black;
+}
+p.title-film {
+    padding: 0px 1em;
+    text-align: center;
+}
+
+.container-title-search {
+//height:15em ;
+//background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(/images/background_home.jpg);
+//background-size: cover;
+
+}
+
+
+
+
+
+
+
+

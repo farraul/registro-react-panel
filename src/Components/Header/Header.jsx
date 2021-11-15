@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Boton from '../Boton/Boton';
+import { connect } from 'react-redux';
 import logo from '../../images/raul-logo.png';
+import { PromiseProvider } from 'mongoose';
 
 
-const Header = () => {
+const Header = (props) => {
     const history = useNavigate();
     const llevame = () => {
         history("/");
@@ -18,7 +20,7 @@ const Header = () => {
             <div className="menu">
                 <Boton destino="Home" url="/"/>
                 <Boton destino="Films" url="/films"/>
-                <Boton destino="Perfil" url="/profile"/>
+               { props.data_user?.user?._id ? <Boton destino="Perfil" url="/profile"/>: null}
                 <Boton destino="Registro" url="/register"/>
                 <Boton destino="Login" url="/login"/>
                 
@@ -28,4 +30,8 @@ const Header = () => {
 
 };
 
-export default Header;
+
+export default connect((state) => ({
+    data_user: state.data_user
+
+})) (Header);

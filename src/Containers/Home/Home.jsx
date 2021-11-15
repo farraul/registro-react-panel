@@ -1,82 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {TAKE_FILM} from '../../redux/types';
+import { connect } from 'react-redux';
+import pocima from '../../images/progress.gif';
 
 
-const Home = () => {
 
-    const history = useNavigate();
+
+const Home = (props) => {
+
+    let navigate = useNavigate();
+
 
     const [msgError, setmsgError] = useState("");
     const [datosperfil, setDatosPerfil] = useState("");
-    const [credentials, setCredentials] = useState({peli:''});
-    const [films, setfilms]= useState("");
-    const [filmfound, setfilmfound]  = useState("");
+    const [credentials, setCredentials] = useState({ peli: '' });
+    const [films, setfilms] = useState("");
+    const [filmfound, setfilmfound] = useState({});
 
 
     useEffect(() => {
-        bringfilms (); 
+        bringfilms();
         datauser();
 
 
     }, []);
 
 
-    let arr = ['pepe','maria','ramon','gutavo']
- 
+    let arr = ['pepe', 'maria', 'ramon', 'gutavo']
 
- 
+
+
     const bringfilms = async () => {
         let res = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=51c1099989a6923f3d12154210fc2cf7&language=en-US&page=1");
         setfilms(res.data.results);
-        console.log("datos de pelis",res.data.results);      
-        
-};
+        console.log("datos de pelis", res.data.results);
+
+    };
 
 
 
 
-    const writefilm = (e) =>{
-  
-        setCredentials( e.target.value );
+    const writefilm = (e) => {
 
-        let film= credentials;
-        console.log("cred", credentials)
-      
 
-         const filtered = films.filter( word => {
+        const filtered = films.filter(word => {
             //return word.toLowerCase().match(films.toLowerCase())
-            console.log("word", word.original_title);
-            console.log("film: ", film);
-            console.log("word.original_title:", word.original_title)
-         
-           return word.original_title.match(film);
+  
+            return word.original_title.toLowerCase().match(e.target.value.toLowerCase());
 
-           
-          })
-          console.log("filtered2:",filtered)
-          const setfilmfound=filtered;
-          //const container = document.getElementById('solutions')
-          //container.innerHTML= filtered
+            //return word.original_title.match(e.target.value);
 
-
-        /*filtered.map((peli) => {
-
-             //container.innerHTML= "o";
-             console.log("ho:",peli.original_title);
-             
-            let container = document.getElementById('solutions');
-          container.innerHTML= peli.original_title;
-             
-              
-         
-
-        })*/
-
+        })
+        console.log("filtered2:", filtered)
+        setfilmfound(filtered);
     }
-
-    
-
 
     const datauser = async () => {
         try {
@@ -88,44 +67,54 @@ const Home = () => {
         }
     };
 
-    return (
-        
-        <div className='container-home pt-2'>
-            <div>
-                <h1 className='h1-home mt-2'>Tu plataforma de peliculas</h1>
-                <div className="container-buscador">
-                    
-                    <input className="imput-search" type="text" name="film" onChange={writefilm} title="film" lenght="30" placeholder="Escribe pelicula"/>
-                    <div id="solutions" className="container-equals-films">
-                    
-       {/*  {[filmfound].map((peli) => {
-           return (
-            <div className="peli">
-            </div>
-            )
-         }) */}
- 
-         } 
-        
-         
+
+    const escogePelicula = (data_film) => {
+      
+        console.log("datos:",data_film);
+        props.dispatch({type:TAKE_FILM,payload:data_film});
           
- 
 
+        //redirigire a el perfil de la película....
+        navigate("/film");
+    }
 
+    return (
 
+        <div className='container-home'>
+            <div>
 
+                <div className="container-title-search pt-5">
+                    <h1 className='h1-home'>Tu plataforma de peliculas</h1>
+                    <input className="imput-search" type="text" name="film" onChange={writefilm} title="film" lenght="30" placeholder="Escribe pelicula" />
+                </div>
+                <div className="container-buscador">
 
+                    
+                    {filmfound.length > 0 &&
+                    <div id="solutions" className="container-equals-films">
+
+                        {filmfound.map((peli) => {
+                            return (
+                                <div className="peli" key={peli.id}>
+                                    <img className="image-films"src={`https://image.tmdb.org/t/p/original/${peli.poster_path}`} onClick={()=>escogePelicula(peli)} />
+
+                                    <p className="title-film">{peli.title}</p>
+                                </div>
+                            ) 
+                        })}
 
                     </div>
+                    }
+
+
+                    
                 </div>
-
-                <p className="text-center mt-10">últimos usuarios registrados </p>
-                
-
-                { datosperfil.length > 0 &&
+ {/*
+                <p className="text-center mt-10">últimos usuarios registrados </p>   
+                {datosperfil.length > 0 &&
                     <div id="table-home-print">
                         <div className="colum-home-print">
-                            
+
                             {datosperfil.map(run => {
                                 return (
                                     <p className="colum-components-home-print" key={run._id}>
@@ -151,44 +140,23 @@ const Home = () => {
                                     </p>
                                 )
                             })}
-                        </div> 
-                    </div>
-                }
-            
+                        </div>
+                        </div>*/}
+                
+
             </div>
         </div>
     )
 
-return(
-    <div style={{color: 'red'}}>asfdsf</div>
-)
+    return (
+        <div style={{ color: 'red' }}>asfdsf</div>
+    )
 
 
-{/*}
-let arr = ['adios', 'hola', 'uno', 'dos', 'tres']
 
-const search = 'no'
-search =()=>{
-
-const filtered = arr.filter( word => {
-  return word.toLowerCase().match(search.toLowerCase())
-})
-
-const container = document.getElementById('solutions')
-container.innerHTML = filtered
-
-console.log(container)
 }
 
 
-
-    <div>holaa</div>
-    <div className="" onClick={() => search()}>Login</div>
-
-*/}
-
-
-
-};
-
-export default Home;
+export default connect((state)=>({
+    data_user: state.data_user
+}))(Home);
