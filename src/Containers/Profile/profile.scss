@@ -13,7 +13,7 @@
     height: 3em;
     align-items: center;
     padding: 0px 27px 0px 0px ;
-    background: #d89e9e;
+    background: white;
 }
 .table-field-1 {
     width: 6em;
@@ -27,16 +27,13 @@
 
 .container-update-profile{
 width: 20em;
-margin: auto;
 margin-top: 0.5em;
 }
 .designProfile {
     display: flex;
-    max-width: 27em;
     margin: auto;
     padding: 0px 0em;
-    flex-direction: column;
-}
+    flex-direction: row;}
 
 .input-form-update{
     display: flex;
@@ -96,6 +93,7 @@ font-size:1.2em;
 .main-container{
     display: flex;
     flex-direction: column;
+    flex-direction: row;
 }
 .img-profile {
     width: 4em;
@@ -111,7 +109,8 @@ font-size:1.2em;
 }
 .main-container-one {
     display: flex;
-    padding: 3em 5em;
+    padding: 3em 9em;
+    flex-direction: column;
 }
 tr, td {
     color:white;
@@ -123,6 +122,8 @@ table.table-film-reserve {
     padding: 0.5em;
     padding: 0.5em;
     border: 1px solid red;
+    display: flex;
+
 }
 td.td-one {
     width: 6em;
@@ -132,4 +133,10 @@ td.td-one {
 }
 td.td-two {
     padding: 1em;
+}
+.film-reserved {
+    padding-left: 10em;
+}
+img.profile-image-films {
+    height: 15em;
 }

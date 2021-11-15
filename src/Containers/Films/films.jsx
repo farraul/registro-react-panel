@@ -51,6 +51,8 @@ const Films = (props) => {
                         return (
                             <div className="peli" key={peli.id}>
                                 <img alt={peli.id} className="cartel" onClick={()=>escogePelicula(peli)} src={`https://image.tmdb.org/t/p/original/${peli.poster_path}`}/>
+                                <p className="title-film">{peli.title}</p>
+
                             </div>
                         )
                     })

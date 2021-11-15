@@ -140,16 +140,13 @@ const Profile = (props) => {
                             <div className="print-fields">{props.data_user?.user?.telf}</div>
                         </div>
                         <br />
-                        <div className="table-row">
-                            <div className="table-field-1">Id:</div>
-                           
-                            <div className="print-fields">{props.data_user?.user?._id}</div>
-                        </div>
+                        
                         <div className="user-logout" onClick={() => logOut()}>LOGOUT</div>
                     </div>
-                    <div>
+                    <div className="film-reserved">
                     <h2>Pelicula reservada</h2>
                     <table class="table-film-reserve">
+                        <div>
                                 <tr className="tabla-tr">
                                     <td className="td-one">Titulo:</td>
                                     <td className="td-two">{props?.data_film?.original_title}</td>     
@@ -162,7 +159,11 @@ const Profile = (props) => {
                                     <td className="td-one">Fecha publicación:</td>
                                     <td className="td-two">{props.data_film.release_date}</td>
                                 </tr>
+                        </div>
+                        <div>
+                        <img className="profile-image-films"src={`https://image.tmdb.org/t/p/original/${props?.data_film?.poster_path}`} />
 
+                        </div>
 
                                 
 

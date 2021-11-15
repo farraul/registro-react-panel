@@ -84,7 +84,7 @@ const Home = (props) => {
             <div>
 
                 <div className="container-title-search pt-5">
-                    <h1 className='h1-home'>Tu plataforma de peliculas</h1>
+                    <h1 className='h1-home'>RAUL FLIX</h1>
                     <input className="imput-search" type="text" name="film" onChange={writefilm} title="film" lenght="30" placeholder="Escribe pelicula" />
                 </div>
                 <div className="container-buscador">
