@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Boton from '../Boton/Boton';
 import { connect } from 'react-redux';
 import logo from '../../images/raul-logo.png';
-import { PromiseProvider } from 'mongoose';
 
 
 const Header = (props) => {
