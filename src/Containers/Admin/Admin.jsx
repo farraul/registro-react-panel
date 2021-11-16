@@ -54,7 +54,7 @@ const Admin = (props) => {
 
 
                     <div className="">
-                        <p className="text-center mt-10">Últimos usuarios registrados </p>
+                        <p className="text-center mt-2">Últimos usuarios registrados </p>
                         {datosperfil.length > 0 &&
                             <div id="table-home-print">
                                 <div className="colum-home-print">
@@ -92,7 +92,7 @@ const Admin = (props) => {
                     <div>
 
                         <div>
-                            <p className="text-center mt-10">Últimos pedidos</p>
+                            <p className="text-center mt-4">Últimos pedidos</p>
                             {datospedidos.length > 0 &&
                                 <div id="table-home-print">
                                     <div className="colum-home-print">
