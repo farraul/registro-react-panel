@@ -29,10 +29,8 @@ const Profile = (props) => {
     const panel_update_data_function = ()=>{
         if(section_data_update!=true){
         setsection_data_update(true);
-        console.log("entre11 ");
         }else if(section_data_update==true){
         setsection_data_update(false);  
-        console.log("entre22 ");
         }
         console.log("panel_update_data: ",section_data_update);
     }
@@ -132,6 +130,8 @@ const Profile = (props) => {
             <div className="main-container">
                 <div className="main-container-one-profile">
                 <div className="designProfile">
+
+                <div className="data-personal-and-update">
                     <div id="table-profile">
                         <div className="img-h1">
                             <img className="img-profile" src={profile} alt="profile" />
@@ -158,8 +158,29 @@ const Profile = (props) => {
                         
                         <div className="user-logout-profile" onClick={() => logOut()}>LOGOUT</div>
                         <div className="button-update-open-section" onClick={() => panel_update_data_function()}>CAMBIAR DATOS</div>
-
                     </div>
+                    { section_data_update ==true ?
+                <div className="container-update-profile">
+                    {/*<pre>{JSON.stringify(user, null, 2)}</pre>*/}
+                    <div className="table-update">
+                        <h2>Actualizar</h2>
+                        <input className="input-form-update" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
+                        <br/>
+                        <input className="input-form-update" type='email' name='email' title='email' onChange={userHandler} lenght='30' placeholder='Email' />
+                        <br/>
+                        <input className="input-form-update" type='text' name='telf' title='telf' onChange={userHandler} lenght='30' placeholder='Teléfono' />
+                        <br/>
+                        <div className="sendButton" onClick={() => update()}>Actualizar datos</div>
+                        <div className="deleteButton" onClick={() => deleteuser()}>Borrar usuario</div>
+                        {/* <div className="deleteButton" onClick={() => deletealluser()}>Borrar todos usuario db</div> */}
+                    </div>
+                </div>
+                :null
+                }
+
+                </div>
+
+
                     <div className="film-reserved">
                     <h2>Pelicula reservada</h2>
                     <table class="table-film-reserve">
@@ -188,30 +209,8 @@ const Profile = (props) => {
                     <div className="print-fields"><p></p></div> 
                 </div>
                 </div>
-                { section_data_update ==true ?
-                <div className="container-update-profile">
-                    {/*<pre>{JSON.stringify(user, null, 2)}</pre>*/}
-                    <div className="table-update">
-                        <h2>Actualizar</h2>
-                        <input className="input-form-update" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
-                        <br/>
-                        <input className="input-form-update" type='email' name='email' title='email' onChange={userHandler} lenght='30' placeholder='Email' />
-                        <br/>
-                        <input className="input-form-update" type='text' name='telf' title='telf' onChange={userHandler} lenght='30' placeholder='Teléfono' />
-                        <br/>
-                        <div className="sendButton" onClick={() => update()}>Actualizar datos</div>
-                        <div className="deleteButton" onClick={() => deleteuser()}>Borrar usuario</div>
-                        {/* <div className="deleteButton" onClick={() => deletealluser()}>Borrar todos usuario db</div> */}
-                    </div>
                 </div>
-                :null
-                }
-                
-
-
-                </div>
-               
-            </div>
+             </div>
 
 
         )
