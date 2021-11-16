@@ -50,6 +50,7 @@ const Film = (props) => {
             
             
             try {
+               
                 let res = await axios.post("https://app-movies-mongoose.herokuapp.com/pedido/", body, {
                     headers:{
                         'Authorization': `Bearer ${props.data_user.token}` 

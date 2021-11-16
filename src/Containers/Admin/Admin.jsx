@@ -34,7 +34,11 @@ const Admin = (props) => {
     };
     const takepedidos = async () => {
         try {
-            let res_pedido = await axios.get("https://app-movies-mongoose.herokuapp.com/pedido");
+            let res_pedido = await axios.get("https://app-movies-mongoose.herokuapp.com/pedido",  {
+                headers:{
+                    'Authorization': `Bearer ${props.data_user.token}` 
+                }
+            });
             setdatospedidos(res_pedido.data);
             console.log("res pedidos: ", res_pedido)
         } catch (error) {
