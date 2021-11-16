@@ -1,117 +1,12 @@
-.table-row {
-    display: flex;
-}
-.table-profile {
-    width: 25em;
-    margin: auto;
-    margin-top: 10em;
-}
-.table-row {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid;
-    height: 3em;
-    align-items: center;
-    padding: 0px 27px 0px 0px ;
-    background: white;
-}
-.table-field-1 {
-    width: 6em;
-    background-color: #dbdbdb;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    padding-left: 2em;
-}
 
-
-.container-update-profile{
-width: 20em;
-margin-top: 0.5em;
-}
-.designProfile {
-    display: flex;
-    margin: auto;
-    padding: 0px 0em;
-    flex-direction: row;}
-
-.input-form-update{
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid;
-    height: 3em;
-    align-items: center;
-    width: 20em;
-    padding: 5px 10px 5px 18px;
-}
-.table-update{
-    width: 20em;
-    margin: auto;
-  
-}
-
-.sendButton {
-    height: 3em;
-    width: 100%;
-    background-color: green;
-    color: white;
-    border-radius: 0.2em;
-    display: flex;
-    margin-top: 2em;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 30px;
-}
-.deleteButton {
-    height: 3em;
-    width: 100%;
-    background-color: rgb(141, 1, 1);
-    color: white;
-    border-radius: 0.2em;
-    display: flex;
-    margin-top: 2em;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 30px;
-}
-.user-logout{
-width: 100%;
-height: 3em;
-background-color: brown;
-margin-top:3em;
-display: flex;
-justify-content: center;
-align-items: center;
-color: white;
-border-radius: 30px;
-font-size:1.2em;
-}
-.main-container{
-    display: flex;
-    flex-direction: column;
-    flex-direction: row;
-    justify-content: center;
-}
-.img-profile {
-    width: 4em;
-}
-.img-h1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
 .print-fields {
     padding: 0px 20px;
 }
 .main-container-one {
     display: flex;
-    padding: 3em 9em;
+    padding: 3em 0em;
     flex-direction: column;
+    margin: auto;
 }
 tr, td {
     color:white;
@@ -145,7 +40,7 @@ img.profile-image-films {
     display: flex;
 }
 .colum-components-home-print-pedidos{
-    width: 13em;
+    width: 14em;
     background-color: grey;
     height: 100%;
     padding: 0em 1em;
@@ -155,4 +50,7 @@ img.profile-image-films {
 }
 .admin-h1{
     text-align: center;
+}
+.last-order-titles {
+    display: flex;
 }

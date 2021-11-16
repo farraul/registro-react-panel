@@ -130,12 +130,12 @@ const Profile = (props) => {
 
         return (
             <div className="main-container">
-                <div className="main-container-one">
+                <div className="main-container-one-profile">
                 <div className="designProfile">
                     <div id="table-profile">
                         <div className="img-h1">
                             <img className="img-profile" src={profile} alt="profile" />
-                            <h1>Datos personales</h1>
+                            <h2>Datos personales</h2>
                         </div>
 
                         <div className="table-row">

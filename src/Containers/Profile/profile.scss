@@ -110,13 +110,13 @@ font-size:1.2em;
     flex-direction: row;
 }
 .img-profile {
-    width: 4em;
+    width: 2em;
 }
 .img-h1 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 .print-fields {
     padding: 0px 20px;
@@ -149,8 +149,13 @@ td.td-two {
     padding: 1em;
 }
 .film-reserved {
-    padding-left: 10em;
+  padding-left: 10em;
+
+    
 }
 img.profile-image-films {
     height: 15em;
+}
+.main-container-one-profile {
+    padding: 2em 7em;
 }

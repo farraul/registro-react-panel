@@ -93,6 +93,14 @@ const Admin = (props) => {
 
                         <div>
                             <p className="text-center mt-4">Últimos pedidos</p>
+                            <div className="last-order-titles">
+                                <div><p className="colum-components-home-print-pedidos">Número pedido</p></div>
+                                <div><p className="colum-components-home-print-pedidos">Fecha pedido</p></div>
+                                <div><p className="colum-components-home-print-pedidos">Nombre cliente</p></div>
+                                <div><p className="colum-components-home-print-pedidos">Email cliente</p></div>
+                                <div><p className="colum-components-home-print-pedidos">Pelicula alquilada</p></div>
+                            </div>
+
                             {datospedidos.length > 0 &&
                                 <div id="table-home-print">
                                     <div className="colum-home-print">
@@ -101,29 +109,29 @@ const Admin = (props) => {
                                             <div className="table-print-pedidos">
                                                 <div className="table-home-print-n-order">
                                                     <p className="colum-components-home-print-pedidos" key={run._id}>
-                                                    Número pedido: {run._id}
+                                                   {run._id}
                                                     </p>
                                                 </div>
 
                                                 <div>
                                                     <p className="colum-components-home-print-pedidos" key={run._id}>
                                                         
-                                                     Fecha pedido: {run.createdAt}
+                                                    {run.createdAt}
                                                     </p>
                                                 </div>
                                                 <div>
                                                     <p className="colum-components-home-print-pedidos" key={run._id}>
-                                                     Nombre cliente: {run.nombre_cliente}
+                                                   {run.nombre_cliente}
                                                     </p>
                                                 </div>
                                                 <div>
                                                     <p className="colum-components-home-print-pedidos" key={run._id}>
-                                                     Email cliente: {run.email_cliente}
+                                                    {run.email_cliente}
                                                     </p>
                                                 </div>
                                                 <div>
                                                     <p className="colum-components-home-print-pedidos" key={run._id}>
-                                                     Pelicula alquilada: {run.name_film}
+                                                    {run.name_film}
                                                     </p>
                                                 </div>
                                             </div>
