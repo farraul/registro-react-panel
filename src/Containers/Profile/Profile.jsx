@@ -11,11 +11,31 @@ import profile from '../../images/profile.png';
 
 const Profile = (props) => {
 
+       
+    const [msgError, setmsgError] = useState("");
+    const [section_data_update, setsection_data_update]= useState(false);
+    const [user, setUser] = useState({
+        id: '',
+        name: '',
+        email: '',
+        telf: ''
+    });
+
     useEffect(() => {
         console.log("props.data_user?.user?.name:  ", props.data_user.user.name);
 
     }, [])
 
+    const panel_update_data_function = ()=>{
+        if(section_data_update!=true){
+        setsection_data_update(true);
+        console.log("entre11 ");
+        }else if(section_data_update==true){
+        setsection_data_update(false);  
+        console.log("entre22 ");
+        }
+        console.log("panel_update_data: ",section_data_update);
+    }
 
     //logout
     const logOut = () => {
@@ -28,15 +48,7 @@ const Profile = (props) => {
         history("/login");
     }
 
-    {/*modificar datos*/ }
-    //Hooks
-    const [msgError, setmsgError] = useState("");
-    const [user, setUser] = useState({
-        id: '',
-        name: '',
-        email: '',
-        telf: ''
-    });
+
     const userHandler = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     }
@@ -144,7 +156,9 @@ const Profile = (props) => {
                         </div>
                         <br />
                         
-                        <div className="user-logout" onClick={() => logOut()}>LOGOUT</div>
+                        <div className="user-logout-profile" onClick={() => logOut()}>LOGOUT</div>
+                        <div className="button-update-open-section" onClick={() => panel_update_data_function()}>CAMBIAR DATOS</div>
+
                     </div>
                     <div className="film-reserved">
                     <h2>Pelicula reservada</h2>
@@ -174,23 +188,27 @@ const Profile = (props) => {
                     <div className="print-fields"><p></p></div> 
                 </div>
                 </div>
-
+                { section_data_update ==true ?
                 <div className="container-update-profile">
-
                     {/*<pre>{JSON.stringify(user, null, 2)}</pre>*/}
                     <div className="table-update">
                         <h2>Actualizar</h2>
                         <input className="input-form-update" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
-                        <br />
+                        <br/>
                         <input className="input-form-update" type='email' name='email' title='email' onChange={userHandler} lenght='30' placeholder='Email' />
-                        <br />
+                        <br/>
                         <input className="input-form-update" type='text' name='telf' title='telf' onChange={userHandler} lenght='30' placeholder='Teléfono' />
-                        <br />
+                        <br/>
                         <div className="sendButton" onClick={() => update()}>Actualizar datos</div>
                         <div className="deleteButton" onClick={() => deleteuser()}>Borrar usuario</div>
                         {/* <div className="deleteButton" onClick={() => deletealluser()}>Borrar todos usuario db</div> */}
                     </div>
                 </div>
+                :null
+                }
+                
+
+
                 </div>
                
             </div>
