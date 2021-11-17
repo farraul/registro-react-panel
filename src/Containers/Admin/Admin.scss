@@ -39,9 +39,18 @@ img.profile-image-films {
 .table-print-pedidos {
     display: flex;
 }
-.colum-components-home-print-pedidos{
+.colum-components-admin-print-pedidos{
     width: 14em;
-    background-color: grey;
+    background-color:black;
+    height: 100%;
+    padding: 0em 1em;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+}
+.colum-components-admin-print-pedidos-titles{
+    width: 14em;
+    background-color: rgb(78, 78, 78);
     height: 100%;
     padding: 0em 1em;
     border: 1px solid;
@@ -54,3 +63,30 @@ img.profile-image-films {
 .last-order-titles {
     display: flex;
 }
+.colum-components-admin-print {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-left: 0.01px solid;
+    border-right: 0.01px solid;
+    padding: 15px 15px ;
+    width: 14em;
+    margin: 0;
+    background-color: rgb(66, 66, 66);
+}
+.users-registers-title {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+p.colum-components-admin-print-register{
+border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-left: 0.01px solid;
+    border-right: 0.01px solid;
+    padding: 15px 15px;
+    width: 14em;
+    margin: 0;
+    background-color: black}
+ 

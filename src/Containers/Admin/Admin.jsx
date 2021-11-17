@@ -54,19 +54,26 @@ const Admin = (props) => {
         return (
             <div className="main-container">
                 <div className="main-container-one">
-                    <h1 className="admin-h1">Panel de control admin</h1>
+                    <h1 className="admin-h1"></h1>
 
 
                     <div className="">
-                        <p className="text-center mt-2">Últimos usuarios registrados </p>
+                        <h2 className="text-center mt-2">Últimos usuarios registrados </h2>
+
                         {datosperfil.length > 0 &&
+                            <div>
+                            <div className="users-registers-title">
+                            <p className="colum-components-admin-print" >Nombre</p>
+                            <p className="colum-components-admin-print" >Email</p>
+                            <p className="colum-components-admin-print" >Id</p>
+                            </div>
                             <div id="table-home-print">
                                 <div className="colum-home-print">
 
                                     {datosperfil.map(run => {
                                         return (
-                                            <p className="colum-components-home-print" key={run._id}>
-                                                Nombre: {run.name}
+                                            <p className="colum-components-admin-print-register" key={run._id}>
+                                                {run.name}
                                             </p>
                                         )
                                     })}
@@ -74,8 +81,8 @@ const Admin = (props) => {
                                 <div className="colum-home-print">
                                     {datosperfil.map(run => {
                                         return (
-                                            <p className="colum-components-home-print" key={run._id}>
-                                                Email: {run.email}
+                                            <p className="colum-components-admin-print-register" key={run._id}>
+                                                {run.email}
                                             </p>
                                         )
                                     })}
@@ -83,26 +90,27 @@ const Admin = (props) => {
                                 <div className="colum-home-print">
                                     {datosperfil.map(run => {
                                         return (
-                                            <p className="colum-components-home-print" key={run._id}>
-                                                Id: {run._id}
+                                            <p className="colum-components-admin-print-register" key={run._id}>
+                                                {run._id}
                                             </p>
                                         )
                                     })}
                                 </div>
 
                             </div>
+                            </div>
                         }
                     </div>
                     <div>
 
                         <div>
-                            <p className="text-center mt-4">Últimos pedidos</p>
+                            <h2 className="text-center mt-4">Últimos pedidos</h2>
                             <div className="last-order-titles">
-                                <div><p className="colum-components-home-print-pedidos">Número pedido</p></div>
-                                <div><p className="colum-components-home-print-pedidos">Fecha pedido</p></div>
-                                <div><p className="colum-components-home-print-pedidos">Nombre cliente</p></div>
-                                <div><p className="colum-components-home-print-pedidos">Email cliente</p></div>
-                                <div><p className="colum-components-home-print-pedidos">Pelicula alquilada</p></div>
+                                <div><p className="colum-components-admin-print-pedidos-titles">Número pedido</p></div>
+                                <div><p className="colum-components-admin-print-pedidos-titles">Fecha pedido</p></div>
+                                <div><p className="colum-components-admin-print-pedidos-titles">Nombre cliente</p></div>
+                                <div><p className="colum-components-admin-print-pedidos-titles">Email cliente</p></div>
+                                <div><p className="colum-components-admin-print-pedidos-titles">Pelicula alquilada</p></div>
                             </div>
 
                             {datospedidos.length > 0 &&
@@ -112,29 +120,29 @@ const Admin = (props) => {
                                             return (
                                             <div className="table-print-pedidos">
                                                 <div className="table-home-print-n-order">
-                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                    <p className="colum-components-admin-print-pedidos" key={run._id}>
                                                    {run._id}
                                                     </p>
                                                 </div>
 
                                                 <div>
-                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                    <p className="colum-components-admin-print-pedidos" key={run._id}>
                                                         
                                                     {run.createdAt}
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                    <p className="colum-components-admin-print-pedidos" key={run._id}>
                                                    {run.nombre_cliente}
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                    <p className="colum-components-admin-print-pedidos" key={run._id}>
                                                     {run.email_cliente}
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className="colum-components-home-print-pedidos" key={run._id}>
+                                                    <p className="colum-components-admin-print-pedidos" key={run._id}>
                                                     {run.name_film}
                                                     </p>
                                                 </div>

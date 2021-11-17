@@ -25,7 +25,7 @@ const Profile = (props) => {
         console.log("props.data_user?.user?.name:  ", props.data_user.user.name);
 
     }, [])
-
+//permite que al clicar "cambiar datos" se abra otra pestaña
     const panel_update_data_function = ()=>{
         if(section_data_update!=true){
         setsection_data_update(true);
