@@ -8,13 +8,13 @@ const Boton = (props) => {
 
     const history = useNavigate();
 
-    const llevame = () => {
+    const gototheurl = () => {
         history(props.url);
     }
 
     console.log("props: ", props);
     return (
-        <div className="designBoton" onClick={()=>llevame()}>{props.destino}</div>
+        <div className="designBoton" onClick={()=>gototheurl()}>{props.destino}</div>
         
     )
 };

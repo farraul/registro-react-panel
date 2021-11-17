@@ -12,7 +12,6 @@ import profile from '../../images/profile.png';
 const Profile = (props) => {
 
        
-    const [msgError, setmsgError] = useState("");
     const [section_data_update, setsection_data_update]= useState(false);
     const [user, setUser] = useState({
         id: '',
@@ -161,7 +160,7 @@ const Profile = (props) => {
                     </div>
                     { section_data_update ==true ?
                 <div className="container-update-profile">
-                    {/*<pre>{JSON.stringify(user, null, 2)}</pre>*/}
+                    {/*<pre>{JSON.stringify(user, null, 2)}</pre> -- esto sirve para mostrar datos*/}
                     <div className="table-update">
                         <h2>Actualizar</h2>
                         <input className="input-form-update" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
@@ -172,7 +171,6 @@ const Profile = (props) => {
                         <br/>
                         <div className="sendButton" onClick={() => update()}>Actualizar datos</div>
                         <div className="deleteButton" onClick={() => deleteuser()}>Borrar usuario</div>
-                        {/* <div className="deleteButton" onClick={() => deletealluser()}>Borrar todos usuario db</div> */}
                     </div>
                 </div>
                 :null

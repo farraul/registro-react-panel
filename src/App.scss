@@ -1,6 +1,7 @@
 @import 'Scss/main.scss';
 @import 'Components/Header/Header.scss';
 @import 'Components/Boton/Boton.scss';
+@import 'Components/Footer/Footer.scss';
 
 
 @import 'Containers/Home/Home.scss';
@@ -9,6 +10,7 @@
 @import 'Containers/Login/Login.scss';
 @import 'Containers/Profile/profile.scss';
 @import 'Containers/Register/register.scss';
+
 
 
 html,body,#root {  height: 100%;  margin: 0; background-color: black;}
