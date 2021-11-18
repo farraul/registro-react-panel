@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import data_film from '../../redux/reducers/data_film';
+import Boton from '../../Components/Boton/Boton';
 
 
 
@@ -19,14 +20,22 @@ const Film = (props) => {
     }, []);
 
     const [buttonrent, setmsgButtonrent] = useState(  <button  className="button-rent-fiml mt-2" onClick={()=> order()}>ALQUILAR LA PELICULA</button>);
-
+    const [linktologin, setlinktologin] = useState();
+    
     //crear nuevo pedido
     const order = async() => {
-        //console.log("la id de la peli que voy a pedir es......",peli.id);
+        console.log("props.data_user.user.email: ",props.data_user.user.email);
+        
             //Generación del body
+
+        if(props.data_user.user.email==undefined) {
+            console.log("no hay datos");
+            setlinktologin(<Boton destino="Login" url="/login"/>);
+
+
+        }else{
+
             let body = {
-
-
                 nombre_cliente: props.data_user.user.name,
                 email_cliente: props.data_user.user.email,
                 id_cliente: props.data_user.user._id,
@@ -37,12 +46,6 @@ const Film = (props) => {
                 release_data: props.data_film.release_date,
                 overview: props.data_film.overview,
                 release_date: props.data_film.release_date,
-                
-
-                /*numero: user.name,
-                dependiente: user.email,
-                fecha_recogida: user.password,
-                fecha_entrega: user.telf,*/
             }
 
             //Conexion a axios y envio de datos
@@ -70,13 +73,15 @@ const Film = (props) => {
                    
                    setTimeout(()=>{
                     history("/profile");
-                },2000);
-            
-                 
+                },2000);  
 
             } catch (error) {
                 console.log(error)
             }
+
+
+        }
+        
     }
 
 
