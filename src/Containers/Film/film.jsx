@@ -15,26 +15,26 @@ const Film = (props) => {
     const history = useNavigate();
 
     useEffect(() => {
+        if(props.data_user.token=="") {
+            console.log("no hay datos 1");
+            setmsgButtonrent(<div className="button-to-login-unlogin"><Boton destino="Login" url="/login"/></div>);
+        }
         console.log("props.data_user:  ",props.data_user);
-
     }, []);
 
-    const [buttonrent, setmsgButtonrent] = useState(  <button  className="button-rent-fiml mt-2" onClick={()=> order()}>ALQUILAR LA PELICULA</button>);
-    const [linktologin, setlinktologin] = useState();
-    
-    //crear nuevo pedido
-    const order = async() => {
-        console.log("props.data_user.user.email: ",props.data_user.user.email);
+    const [buttonrent, setmsgButtonrent] = useState(<button  className="button-rent-fiml mt-2" onClick={()=> order()}>ALQUILAR LA PELICULA</button>);
+ 
+   
+
+
+      
+        /*
+        <Boton destino="Login" url="/login"/>
         
-            //Generación del body
+        */
+ 
 
-        if(props.data_user.user.email==undefined) {
-            console.log("no hay datos");
-            setlinktologin(<Boton destino="Login" url="/login"/>);
-
-
-        }else{
-
+   const order = async() => {
             let body = {
                 nombre_cliente: props.data_user.user.name,
                 email_cliente: props.data_user.user.email,
@@ -63,14 +63,9 @@ const Film = (props) => {
                 /*let datos = res.data;
                 props.dispatch({type:SAVEFILM,payload:datos});
                 console.log("datos:",datos);*/
-        
 
-               
-                 
-            
-                   setmsgButtonrent("✓ Pelicula alquilada");
-                   
-                   
+                setmsgButtonrent("✓ Pelicula alquilada");
+    
                    setTimeout(()=>{
                     history("/profile");
                 },2000);  
@@ -82,7 +77,7 @@ const Film = (props) => {
 
         }
         
-    }
+    
 
 
 
