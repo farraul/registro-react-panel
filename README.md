@@ -6,6 +6,9 @@ npm i react-router-dom
 npm i axios
 
 # Usuario para conectar:
-davidprofe@gmail.com
+raul@gmail.com
 Contraseña:
-123456789
+12345
+
+# Desplegado
+https://main.d30z6ex64y4oyo.amplifyapp.com/admin
