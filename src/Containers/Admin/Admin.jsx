@@ -106,11 +106,11 @@ const Admin = (props) => {
                         <div>
                             <h2 className="text-center mt-4">Últimos pedidos</h2>
                             <div className="last-order-titles">
-                                <div><p className="colum-components-admin-print-pedidos-titles">Número pedido</p></div>
-                                <div><p className="colum-components-admin-print-pedidos-titles">Fecha pedido</p></div>
-                                <div><p className="colum-components-admin-print-pedidos-titles">Nombre cliente</p></div>
-                                <div><p className="colum-components-admin-print-pedidos-titles">Email cliente</p></div>
-                                <div><p className="colum-components-admin-print-pedidos-titles">Pelicula alquilada</p></div>
+                                <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Número pedido</p></div>
+                                <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Fecha pedido</p></div>
+                                <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Nombre cliente</p></div>
+                                <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Email cliente</p></div>
+                                <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Pelicula alquilada</p></div>
                             </div>
 
                             {datospedidos.length > 0 &&
