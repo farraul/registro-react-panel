@@ -30,20 +30,19 @@ const Register = () => {
     }
 
     const change_name = ()=>{
-        console.log("user: ",user)
-        console.log("user.name: ",user.name)
+      
         console.log("length de user: ",user.name.length)
-
-
-        if((user.name.length>=3) && (/^[a-z]/gi.test(user.name))){ //no funciona el filtro de letras
+        if(user.name.length>=3){ // && (/^[a-z]/gi.test(user.name))  no funciona el filtro de letras
            setinputs_data_form({
             ...inputs_data_form,
             name:"✓ Nombre"});
+            console.log("entra1");
 
         }else{
             setinputs_data_form({
             ...inputs_data_form,
             name:"✗ Utiliza solo letras y minimo 4 caracteres"});
+            console.log("entra2");
      
         };
     }
