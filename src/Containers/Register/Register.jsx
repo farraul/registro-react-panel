@@ -165,7 +165,8 @@ const Register = () => {
         console.log("ready_data_user:true de effect ",ready_data_user);
         if(ready_data_user.name==true && ready_data_user.email==true && ready_data_user.telf==true && ready_data_user.password==true ){
             setbutton_send_data(<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registramee</div>);
-
+        }else{
+            setbutton_send_data(<div className="sendButton-no-ready">Registrame</div>);
         }
 
     });
