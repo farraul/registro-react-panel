@@ -33,6 +33,26 @@ const Register = () => {
     const [button_send_data, setbutton_send_data] = useState(<div className="sendButton-no-ready">Registrame</div>);
 //<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registrame</div>
 
+    //useEffect
+
+    useEffect(() => {
+
+    }, []);
+
+
+
+
+
+    useEffect(() => {
+        //console.log("ready_data_user:true de effect ",ready_data_user);
+        if(ready_data_user.name==true && ready_data_user.email==true && ready_data_user.telf==true && ready_data_user.password==true ){
+            setbutton_send_data(<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registramee</div>);
+        }else{
+            setbutton_send_data(<div className="sendButton-no-ready">Registrame</div>);
+        }
+
+    });
+
     //Manejadores o Handlers
     const userHandler = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -41,12 +61,10 @@ const Register = () => {
 
     const validate_inputs = (e) => {
 
-        console.log("tmc ", [e.target.name]);
-
         switch (e.target.name) {
             case 'name':
                 console.log('case name length ', e.target.value.length);
-                if (e.target.value.length >=4) { // && (/^[a-z]/gi.test(user.name))  no funciona el filtro de letras
+                if ((e.target.value.length >=4) && (/^[a-z]/gi.test(e.target.value))) { // && (/^[a-z]/gi.test(user.name))  
                    
                     setinputs_data_form({
                         ...inputs_data_form,
@@ -150,26 +168,22 @@ const Register = () => {
                 break;
         }
 
-    }
 
 
-
-
-    //useEffect
-
-    useEffect(() => {
-
-    }, []);
-
-    useEffect(() => {
-        console.log("ready_data_user:true de effect ",ready_data_user);
-        if(ready_data_user.name==true && ready_data_user.email==true && ready_data_user.telf==true && ready_data_user.password==true ){
-            setbutton_send_data(<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registramee</div>);
+       /* if(ready_data_user.name==true && ready_data_user.email==true && ready_data_user.telf==true && ready_data_user.password==true ){
+            setbutton_send_data(<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registrame</div>);
         }else{
             setbutton_send_data(<div className="sendButton-no-ready">Registrame</div>);
         }
 
-    });
+*/
+
+
+
+
+    }
+
+
 
     //Funciones
 
