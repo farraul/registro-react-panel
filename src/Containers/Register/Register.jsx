@@ -23,6 +23,15 @@ const Register = () => {
         telf: '',
         password: '',
     });
+    const [ready_data_user, setready_data_user] = useState({
+        name: false,
+        email: false,
+        telf: false,
+        password: false,
+    });
+
+    const [button_send_data, setbutton_send_data] = useState(<div className="sendButton-no-ready">Registrame</div>);
+//<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registrame</div>
 
     //Manejadores o Handlers
     const userHandler = (e) => {
@@ -38,19 +47,104 @@ const Register = () => {
             case 'name':
                 console.log('case name length ', e.target.value.length);
                 if (e.target.value.length >=4) { // && (/^[a-z]/gi.test(user.name))  no funciona el filtro de letras
+                   
                     setinputs_data_form({
                         ...inputs_data_form,
                         name: "✓ Nombre"
                     });
-                    console.log("entra1");
+
+                    setready_data_user({
+                        ...ready_data_user,
+                        name:true
+                    });
                 } else {
                     setinputs_data_form({
                         ...inputs_data_form,
                         name: "✗ Utiliza solo letras y minimo 4 caracteres"
                     });
-                    console.log("entra2");
+
+                    setready_data_user({
+                        ...ready_data_user,
+                        name:false
+                    });
                 };
                 break;
+            case 'email':
+            
+                if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(user.email)) {
+                    setinputs_data_form({
+                        ...inputs_data_form,
+                        email: "✓ Email"
+                    });
+                    setready_data_user({
+                        ...ready_data_user,
+                        email:true
+                    });
+                }
+                else {
+                    setinputs_data_form({
+                        ...inputs_data_form,
+                        email: "✗ Email incorrecto"
+                    });
+                    setready_data_user({
+                        ...ready_data_user,
+                        email:false
+                    });
+                };
+
+            break;
+
+            case 'telf':
+                console.log('case name length ', e.target.value.length);
+                if (e.target.value.length >=9) { // && (/^[a-z]/gi.test(user.name))  no funciona el filtro de letras
+                   
+                    setinputs_data_form({
+                        ...inputs_data_form,
+                        telf: "✓ Teléfono"
+                    });
+
+                    setready_data_user({
+                        ...ready_data_user,
+                        telf:true
+                    });
+                } else {
+                    setinputs_data_form({
+                        ...inputs_data_form,
+                        telf: "✗ El teléfono tiene que tener mínimo 9 digitos"
+                    });
+
+                    setready_data_user({
+                        ...ready_data_user,
+                        telf:false
+                    });
+                };
+                break;
+
+                case 'password':
+                    console.log('case name length ', e.target.value.length);
+                    if (e.target.value.length >=5) { // && (/^[a-z]/gi.test(user.name))  no funciona el filtro de letras
+                       
+                        setinputs_data_form({
+                            ...inputs_data_form,
+                            password: "✓ Contraseña"
+                        });
+    
+                        setready_data_user({
+                            ...ready_data_user,
+                            password:true
+                        });
+                    } else {
+                        setinputs_data_form({
+                            ...inputs_data_form,
+                            password: "✗ La contraseña tiene que tener mínimo 5 caracteres"
+                        });
+    
+                        setready_data_user({
+                            ...ready_data_user,
+                            password:false
+                        });
+                    };
+                    break;
 
             default:
                 break;
@@ -58,60 +152,33 @@ const Register = () => {
 
     }
 
-    const change_name = () => {
-        console.log("length de user.nmae: ", user.name.length)
-        if (user.name.length > 2) { // && (/^[a-z]/gi.test(user.name))  no funciona el filtro de letras
-            setinputs_data_form({
-                ...inputs_data_form,
-                name: "✓ Nombre"
-            });
-            console.log("entra1");
-        } else {
-            setinputs_data_form({
-                ...inputs_data_form,
-                name: "✗ Utiliza solo letras y minimo 4 caracteres"
-            });
-            console.log("entra2");
-        };
-    }
-
-    const change_email = () => {
-        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(user.email)) {
-            setinputs_data_form({
-                ...inputs_data_form,
-                email: "✓ Email"
-            });
-        }
-        else {
-
-
-            setinputs_data_form({
-                ...inputs_data_form,
-                email: "✗ Email incorrecto"
-            });
-            console.log("else 2:", inputs_data_form.email);
-        };
-    }
-
-
 
 
 
     //useEffect
 
     useEffect(() => {
-        console.log("inputs_data_form:", inputs_data_form)
 
     }, []);
 
     useEffect(() => {
-        console.log("user: ", user)
-        console.log("inputs_data_form:", inputs_data_form)
+        console.log("ready_data_user:true de effect ",ready_data_user);
+        if(ready_data_user.name==true && ready_data_user.email==true && ready_data_user.telf==true && ready_data_user.password==true ){
+            setbutton_send_data(<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registramee</div>);
+
+        }
+
     });
 
     //Funciones
 
+
     const enviaDatosRegistro = async () => {
+        console.log("inputs name: ",ready_data_user.name);
+        console.log("inputs name: ",ready_data_user.email);
+        console.log("inputs name: ",ready_data_user.password);
+        console.log("inputs name: ",ready_data_user.telf);
+        if(ready_data_user.name==true && ready_data_user.email==true && ready_data_user.telf==true && ready_data_user.password==true ){
 
         //Generación del body
         let body = {
@@ -134,6 +201,11 @@ const Register = () => {
         } catch (error) {
             console.log(error)
         }
+
+    }else{
+    console.log("no es todo true");
+    }
+
     };
 
 
@@ -147,16 +219,16 @@ const Register = () => {
                     <div className="input-form-register-fields">
                         <input className="input-form-register" type='text' name='name' title='name' onChange={e => { validate_inputs(e); userHandler(e) }} lenght='30' placeholder='Nombre' />
                         <div className="div-print-info-correct">{inputs_data_form.name}</div>
-                        <input className="input-form-register" type='email' name='email' title='email' onChange={e => { userHandler(e); change_email() }} lenght='30' placeholder='Email' />
+                        <input className="input-form-register" type='email' name='email' title='email' onChange={e => { validate_inputs(e);userHandler(e) }} lenght='30' placeholder='Email' />
                         <div className="div-print-info-correct">{inputs_data_form.email}</div>
-                        <input className="input-form-register" type='text' name='telf' title='telf' onChange={userHandler} lenght='30' placeholder='Teléfono' />
+                        <input className="input-form-register" type='text' name='telf' title='telf' onChange={e => { validate_inputs(e);userHandler(e) }} lenght='30' placeholder='Teléfono' />
                         <div className="div-print-info-correct">{inputs_data_form.telf}</div>
-                        <input className="input-form-register" type='text' name='password' title='password' onChange={userHandler} lenght='30' placeholder='Password' />
+                        <input className="input-form-register" type='text' name='password' title='password' onChange={e => { validate_inputs(e);userHandler(e) }} lenght='30' placeholder='Password' />
                         <div className="div-print-info-correct">{inputs_data_form.password}</div>
                     </div>
 
                 </div>
-                <div className="sendButton" onClick={() => enviaDatosRegistro()}>Registrame</div>
+                {button_send_data}
 
 
             </div>

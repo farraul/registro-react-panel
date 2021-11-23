@@ -56,7 +56,7 @@ div#style-div-form-register {
 .div-print-info-correct {
    color: white;
     padding-bottom: 1em;    
-    margin-top: 1em;
+    margin-top: 0.5em;
     height: 1em;
     font-size: 14px;
 }
@@ -66,4 +66,37 @@ div#style-div-form-register {
 }
 .container-form-2fields {
     display: flex;
+}
+
+.sendButton {
+    height: 3em;
+    width: 100%;
+    background-color: green;
+    color: white;
+    border-radius: 0.2em;
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: 8em;
+}
+
+.sendButton-no-ready {
+    height: 3em;
+    width: 100%;
+    background-color: rgb(58, 58, 58);
+    color: white;
+    border-radius: 0.2em;
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 30px;
+    cursor: no-drop;
+    margin-bottom: 8em;
 }
