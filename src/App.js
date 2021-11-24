@@ -12,6 +12,8 @@ import Films from './Containers/Films/films';
 import Film from './Containers/Film/film';
 import Admin from './Containers/Admin/Admin';
 import Footer from './Components/Footer/Footer';
+import Adminsecond from './Containers/Adminsecond/Adminsecond';
+
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/admin" element={<Admin/>}/>
+          <Route path="/adminsecond" element={<Adminsecond/>}/>
         </Routes>
         
         <Footer/>

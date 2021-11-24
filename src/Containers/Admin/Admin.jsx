@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import './Admin.scss';
 import profile from '../../images/profile.png';
+import Boton from '../../Components/Boton/Boton';
+
 
 
 
@@ -49,7 +51,7 @@ const Admin = (props) => {
 
 
     if (props.data_user?.token !== '') {
-        console.log("entre aqui.");
+        
 
         return (
             <div className="main-container">
@@ -59,6 +61,7 @@ const Admin = (props) => {
 
                     <div className="">
                         <h2 className="text-center mt-2">Últimos usuarios registrados </h2>
+                       <div className="button_panel_2"><Boton destino="adminsecond" url="/adminsecond"/></div> 
 
                         {datosperfil.length > 0 &&
                             <div>

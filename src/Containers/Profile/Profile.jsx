@@ -123,7 +123,7 @@ const Profile = (props) => {
             */}
 
     if (props.data_user?.token !== '') {
-        console.log("entre aqui.");
+    
 
         return (
             <div className="main-container">

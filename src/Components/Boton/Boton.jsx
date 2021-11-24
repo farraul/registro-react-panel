@@ -12,7 +12,6 @@ const Boton = (props) => {
         history(props.url);
     }
 
-    console.log("props: ", props);
     return (
         <div className="designBoton" onClick={()=>gototheurl()}>{props.destino}</div>
         

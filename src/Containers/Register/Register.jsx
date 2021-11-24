@@ -65,7 +65,7 @@ const Register = () => {
             case 'name':
                 console.log('case name length ', e.target.value.length);
                 console.log('e' , e.target.value);
-                
+                //regex para solo letras y más de 4 letras
                 if ((e.target.value.length >=4) && (/^[a-z]+$/gi.test(e.target.value))) { // && (/^[a-z]/gi.test(user.name))  
                    
                     setinputs_data_form({

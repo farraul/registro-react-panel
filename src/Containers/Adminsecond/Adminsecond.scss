@@ -1,4 +1,24 @@
 
+
+input.imput-search {
+    height: 3em;
+    margin: auto;
+    width: 100%;
+    color: black;
+    text-align: center;
+    display: flex;
+    font-size: 1.2em;
+    margin-bottom: 3em;
+}
+
+
+
+
+
+
+
+
+//antes
 .print-fields {
     padding: 0px 20px;
 }
@@ -93,12 +113,3 @@ border-top: 1px solid;
     height: 5em;
     margin-bottom: 1em;
 }
-.button_panel_2 {
-    display: flex;
-    margin: auto;
-    margin-top: 3em;
-    margin-bottom: 3em;
-    width: fit-content;
-    border: 1px solid white;
-}
-
