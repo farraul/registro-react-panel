@@ -1,104 +1,38 @@
 
-.print-fields {
-    padding: 0px 20px;
-}
-.main-container-one {
+.main-container-admin {
     display: flex;
-    padding: 3em 0em;
+    height: 79vh;
+}
+.side-bar-admin {
+    display: flex;
+    width: 26em;
     flex-direction: column;
-    margin: auto;
+    flex-wrap: nowrap;
+    align-content: center;
 }
-tr, td {
-    color:white;
-}
-table.table-film-reserve {
-    margin-top: 3em;
-    
-    border-radius: 10px;
-    padding: 0.5em;
-    padding: 0.5em;
-    border: 1px solid red;
-    display: flex;
 
-}
-td.td-one {
-    width: 6em;
+.admin-sidebar {
     display: flex;
-    height: 100%;
-    padding: 1em;
+    flex-direction: column;
 }
-td.td-two {
-    padding: 1em;
+.admin-sidebar {
+    border: 1px white solid;
 }
-.film-reserved {
-    padding-left: 10em;
+.side-bar-elements {
+    padding-left: 6em;
+    border: 1px solid white;
 }
-img.profile-image-films {
-    height: 15em;
-}
-.table-print-pedidos {
-    display: flex;
-}
-.colum-components-admin-print-pedidos{
-    width: 14em;
-    background-color:black;
-    height: 100%;
-    padding: 0em 1em;
-    border: 1px solid;
-    display: flex;
+.front-admin {
+    width: 100%;
     align-items: center;
-}
-.colum-components-admin-print-pedidos-titles{
-    width: 14em;
-    background-color: rgb(78, 78, 78);
-    height: 100%;
-    padding: 0em 1em;
-    border: 1px solid;
-    display: flex;
-    align-items: center;
-}
-.admin-h1{
-    text-align: center;
-}
-.last-order-titles {
-    display: flex;
-}
-.colum-components-admin-print {
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    border-left: 0.01px solid;
-    border-right: 0.01px solid;
-    padding: 15px 15px ;
-    width: 14em;
-    margin: 0;
-    background-color: rgb(66, 66, 66);
-}
-.users-registers-title {
     display: flex;
     justify-content: center;
 }
-
-
-
-p.colum-components-admin-print-register{
-border-top: 1px solid;
-    border-bottom: 1px solid;
-    border-left: 0.01px solid;
-    border-right: 0.01px solid;
-    padding: 15px 15px;
-    width: 14em;
-    margin: 0;
-    background-color: black}
- .last-order-titles {
-    height: 5em;
-    margin-bottom: 1em;
+.logout-admin {
+    width: -moz-fit-content;
+    font-size: 20px;
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    cursor: pointer;
 }
-.button_panel_2 {
-    display: flex;
-    margin: auto;
-    margin-top: 3em;
-    margin-bottom: 3em;
-    width: fit-content;
-    border: 1px solid white;
-}
-

@@ -13,49 +13,66 @@ const Adminsecond = (props) => {
 
     const [datosusuario, setDatosUsuarios] = useState("");
     const [userfounds, setuserfounds] = useState("");
-    let filtered="";
+    let filtered = "";
+    const history = useNavigate();
 
     useEffect(() => {
         takeusers();
     }, [])
-
+    const logOut = () => {
+        //vaciamos redux. Así ya no estamos logueados
+        props.dispatch({ type: LOGOUT });
+        history("/login");
+        console.log("entrologout");
+    }
 
 
     const takeusers = async () => {
         try {
             let res = await axios.get("https://app-movies-mongoose.herokuapp.com/usuario/");
             setDatosUsuarios(res.data);
-            console.log("resdata: ",res.data);
-           
+            console.log("resdata: ", res.data);
+
         } catch (error) {
             console.log(error);
         }
         //console.log("datosusuario: ",datosusuario);
     };
 
-    
+
     const writeuser = (e) => {
-        console.log("e.target.value: ",e.target.value)
-        if(e.target.value!=""){//no me funciona este if
-                 console.log("entro: ",e.target.value)
-                
-                filtered = datosusuario.filter(word => {
-                    return word.name.toLowerCase().match(e.target.value.toLowerCase());
-                })
-                 setuserfounds(filtered);
+        console.log("e.target.value: ", e.target.value)
+        if (e.target.value != "") {//no me funciona este if
+            console.log("entro: ", e.target.value)
+
+            filtered = datosusuario.filter(word => {
+                return word.name.toLowerCase().match(e.target.value.toLowerCase());
+            })
+            setuserfounds(filtered);
         }
- 
+
     }
 
-  
+
 
 
 
     if (props.data_user?.token !== '') {
-       
+
 
         return (
-            <div className="main-container">
+
+            <div className="main-container-admin">
+                <div className="side-bar-admin">
+
+                    <div className="admin-sidebar">
+                        <div className="side-bar-elements"><Boton destino="Buscar Usuario" url="/adminsecond" /></div>
+                        <div className="side-bar-elements"><Boton destino="Usuarios y pedidos" url="/adminthird" /></div>
+                        <div className="side-bar-elements logout-admin" onClick={() => logOut()}>Desconectar</div>
+
+                    </div>
+                </div>
+
                 <div className="main-container-one">
                     <h1 className="admin-h1"></h1>
                     <input className="imput-search mb-2" type="text" name="film" onChange={writeuser} title="film" lenght="30" placeholder="Buscar usuario" />
@@ -63,55 +80,55 @@ const Adminsecond = (props) => {
 
 
                     <div className="">
-                      
-                        
+
+
                         {userfounds.length > 0 &&
                             <div>
-                            <div className="users-registers-title">
-                            <p className="colum-components-admin-print" >Nombre</p>
-                            <p className="colum-components-admin-print" >Email</p>
-                            <p className="colum-components-admin-print" >Id</p>
-                            </div>
-                            <div id="table-home-print">
-                                <div className="colum-home-print">
+                                <div className="users-registers-title">
+                                    <p className="colum-components-admin-print" >Nombre</p>
+                                    <p className="colum-components-admin-print" >Email</p>
+                                    <p className="colum-components-admin-print" >Id</p>
+                                </div>
+                                <div id="table-home-print">
+                                    <div className="colum-home-print">
 
-                                    {userfounds?.map(run => {
-                                        return (
-                                            <p className="colum-components-admin-print-register" key={run._id}>
-                                                {run.name}
-                                            </p>
-                                        )
-                                    })}
-                                </div>
-                                <div className="colum-home-print">
-                                    {userfounds?.map(run => {
-                                        return (
-                                            <p className="colum-components-admin-print-register" key={run._id}>
-                                                {run.email}
-                                            </p>
-                                        )
-                                    })}
-                                </div>
-                                <div className="colum-home-print">
-                                    {userfounds?.map(run => {
-                                        return (
-                                            <p className="colum-components-admin-print-register" key={run._id}>
-                                                {run._id}
-                                            </p>
-                                        )
-                                    })}
-                                </div>
+                                        {userfounds?.map(run => {
+                                            return (
+                                                <p className="colum-components-admin-print-register" key={run._id}>
+                                                    {run.name}
+                                                </p>
+                                            )
+                                        })}
+                                    </div>
+                                    <div className="colum-home-print">
+                                        {userfounds?.map(run => {
+                                            return (
+                                                <p className="colum-components-admin-print-register" key={run._id}>
+                                                    {run.email}
+                                                </p>
+                                            )
+                                        })}
+                                    </div>
+                                    <div className="colum-home-print">
+                                        {userfounds?.map(run => {
+                                            return (
+                                                <p className="colum-components-admin-print-register" key={run._id}>
+                                                    {run._id}
+                                                </p>
+                                            )
+                                        })}
+                                    </div>
 
-                            </div>
+                                </div>
                             </div>
                         }
                     </div>
-                    
+
                 </div>
 
             </div>
 
-                )
+        )
     }
 
 
@@ -122,6 +139,6 @@ const Adminsecond = (props) => {
 
 
 export default connect((state) => ({
-                    data_user: state.data_user,
-                data_film: state.data_film,
+    data_user: state.data_user,
+    data_film: state.data_film,
 }))(Adminsecond);

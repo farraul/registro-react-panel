@@ -10,6 +10,7 @@ import profile from '../../images/profile.png';
 
 
 const Profile = (props) => {
+    const history = useNavigate();
 
        
     const [section_data_update, setsection_data_update]= useState(false);
@@ -40,7 +41,6 @@ const Profile = (props) => {
         props.dispatch({ type: LOGOUT });
         history("/login");
     }
-    const history = useNavigate();
     const logIn = () => {
         history("/login");
     }

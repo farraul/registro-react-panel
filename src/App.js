@@ -13,7 +13,7 @@ import Film from './Containers/Film/film';
 import Admin from './Containers/Admin/Admin';
 import Footer from './Components/Footer/Footer';
 import Adminsecond from './Containers/Adminsecond/Adminsecond';
-
+import Adminthird from './Containers/Adminthird/Adminthird';
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/adminsecond" element={<Adminsecond/>}/>
+          <Route path="/adminthird" element={<Adminthird/>}/>
         </Routes>
         
         <Footer/>
