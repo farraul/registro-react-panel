@@ -46,12 +46,12 @@ const Register = () => {
     useEffect(() => {
         //console.log("ready_data_user:true de effect ",ready_data_user);
         if(ready_data_user.name==true && ready_data_user.email==true && ready_data_user.telf==true && ready_data_user.password==true ){
-            setbutton_send_data(<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registramee</div>);
+            setbutton_send_data(<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registrame</div>);
         }else{
             setbutton_send_data(<div className="sendButton-no-ready">Registrame</div>);
         }
 
-    });
+    },[inputs_data_form]);
 
     //Manejadores o Handlers
     const userHandler = (e) => {
@@ -64,7 +64,9 @@ const Register = () => {
         switch (e.target.name) {
             case 'name':
                 console.log('case name length ', e.target.value.length);
-                if ((e.target.value.length >=4) && (/^[a-z]/gi.test(e.target.value))) { // && (/^[a-z]/gi.test(user.name))  
+                console.log('e' , e);
+                
+                if ((e.target.value.length >=4) && (/^[a-z]/gi.test(user.name))) { // && (/^[a-z]/gi.test(user.name))  
                    
                     setinputs_data_form({
                         ...inputs_data_form,
@@ -114,7 +116,7 @@ const Register = () => {
 
             case 'telf':
                 console.log('case name length ', e.target.value.length);
-                if (e.target.value.length >=9) { // && (/^[a-z]/gi.test(user.name))  no funciona el filtro de letras
+                if ((e.target.value.length >=9)&&(/[a-zA-Z]\w+$/gi.test(user.name))) { // && (/^[a-z]/gi.test(user.name))  no funciona el filtro de letras
                    
                     setinputs_data_form({
                         ...inputs_data_form,
@@ -167,19 +169,6 @@ const Register = () => {
             default:
                 break;
         }
-
-
-
-       /* if(ready_data_user.name==true && ready_data_user.email==true && ready_data_user.telf==true && ready_data_user.password==true ){
-            setbutton_send_data(<div className="sendButton" onClick={() => enviaDatosRegistro()}>Registrame</div>);
-        }else{
-            setbutton_send_data(<div className="sendButton-no-ready">Registrame</div>);
-        }
-
-*/
-
-
-
 
     }
 
