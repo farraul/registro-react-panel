@@ -64,9 +64,9 @@ const Register = () => {
         switch (e.target.name) {
             case 'name':
                 console.log('case name length ', e.target.value.length);
-                console.log('e' , e);
+                console.log('e' , e.target.value);
                 
-                if ((e.target.value.length >=4) && (/^[a-z]/gi.test(user.name))) { // && (/^[a-z]/gi.test(user.name))  
+                if ((e.target.value.length >=4) && (/^[a-z]+$/gi.test(e.target.value))) { // && (/^[a-z]/gi.test(user.name))  
                    
                     setinputs_data_form({
                         ...inputs_data_form,
