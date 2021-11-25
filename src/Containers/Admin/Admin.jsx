@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import './Admin.scss';
 import Boton from '../../Components/Boton/Boton';
+import Panel_admin from '../../Components/Panel_Admin/Panel_Admin';
 
 
 
@@ -13,7 +14,7 @@ import Boton from '../../Components/Boton/Boton';
 const Admin = (props) => {
     const history = useNavigate();
 
-   const logOut = () => {
+   const Admin = () => {
         //vaciamos redux. Así ya no estamos logueados
         props.dispatch({ type: LOGOUT });
         history("/login");
@@ -25,17 +26,9 @@ const Admin = (props) => {
             <div className="main-container-admin">
                 <div className="side-bar-admin">
 
-                    <div className="admin-sidebar">
-                        <div className="side-bar-elements"><Boton destino="Buscar Usuario" url="/adminsecond" /></div>
-                        <div className="side-bar-elements"><Boton destino="Usuarios y pedidos" url="/adminthird" /></div>
-                        <div className="side-bar-elements logout-admin" onClick={() => logOut()}>Desconectar</div>
-
-                    </div>
-                </div>
-                <div className="front-admin">
-                    <div>
-                        <h1 className>Bienvenido al panel del admin</h1>
-                    </div>
+                <Panel_admin/>
+               
+                
 
                 </div>
 

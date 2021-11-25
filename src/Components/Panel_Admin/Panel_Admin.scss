@@ -1,0 +1,39 @@
+
+.panel-admin-screen-right {
+    width: 50%;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5em;
+    height: 31em;
+    justify-content: center;
+}
+.panel-admin {
+    display: flex;
+    justify-content: space-between;
+    background-color: #320303;
+    padding: 1em;
+}
+.panel-admin-screen-right {
+    background-color: grey;
+    width: 65%;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    padding-left: 3em;
+    justify-content: flex-start;
+}
+.panel-admin-side-bar {
+    width: 10em;
+    display: flex;
+    font-size: 25px;
+    padding: 3em;
+    flex-direction: column;
+   
+}
+.main-container-admin {
+    background-color: maroon;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+}

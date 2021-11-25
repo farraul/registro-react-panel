@@ -13,6 +13,7 @@ const Adminthird = (props) => {
 
     const [datosperfil, setDatosPerfil] = useState("");
     const [datospedidos, setdatospedidos] = useState("");
+    const [ email_client, setemail_client] = useState("");
     const history = useNavigate();
 
     useEffect(() => {
@@ -50,25 +51,26 @@ const Adminthird = (props) => {
         }
     };
 
+    const ver_mas = async (run) => {
+        let element = document.getElementById("myDIV");
+        element.classList.add("mystyle");
+        setemail_client(run);
+     
+    }
+
+    const cierreAlquiler= () => {
+        let element = document.getElementById("myDIV");
+        element.classList.remove("mystyle");
+    }
+
+
+
 
 
     if (props.data_user?.token !== '') {
-
-
         return (
 
             <div className="main-container-admin">
-                <div className="side-bar-admin">
-
-                    <div className="admin-sidebar">
-                        <div className="side-bar-elements"><Boton destino="Buscar Usuario" url="/adminsecond" /></div>
-                        <div className="side-bar-elements"><Boton destino="Usuarios y pedidos" url="/adminthird" /></div>
-                        <div className="side-bar-elements logout-admin" onClick={() => logOut()}>Desconectar</div>
-
-                    </div>
-                </div>
-
-
                 <div className="main-container-one">
                     <h1 className="admin-h1"></h1>
 
@@ -162,6 +164,9 @@ const Adminthird = (props) => {
                                                             {run.name_film}
                                                         </p>
                                                     </div>
+                                                    <div>
+                                                    <p onclick="" className="colum-components-admin-print-pedidos-vermas"  onClick={() => ver_mas(run)}>Ver más</p>
+                                                    </div>
                                                 </div>
                                             )
                                         })}
@@ -169,6 +174,18 @@ const Adminthird = (props) => {
 
                                 </div>
                             }
+
+
+
+                            <div className="abrepeliculas" id="myDIV">
+                                    <div className="salida" id="X" onClick={() => cierreAlquiler()}>SALIR</div>
+                                    <div>🎬Has alquilado la siguiente pelicula🎬</div> 
+                                    <div>Título: </div>
+                                    <div>Director: </div>
+                                    <div>Género: </div>
+                                    <div>Duración: </div>
+                                    <div>Lanzamiento: </div>                            
+                            </div>
 
 
 

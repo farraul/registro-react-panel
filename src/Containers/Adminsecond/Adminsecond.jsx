@@ -13,6 +13,7 @@ const Adminsecond = (props) => {
 
     const [datosusuario, setDatosUsuarios] = useState("");
     const [userfounds, setuserfounds] = useState("");
+    const [datosperfil, setDatosPerfil] = useState("");
     let filtered = "";
     const history = useNavigate();
 
@@ -25,12 +26,14 @@ const Adminsecond = (props) => {
         history("/login");
         console.log("entrologout");
     }
+ 
 
 
     const takeusers = async () => {
         try {
             let res = await axios.get("https://app-movies-mongoose.herokuapp.com/usuario/");
             setDatosUsuarios(res.data);
+            setDatosPerfil(res.data);
             console.log("resdata: ", res.data);
 
         } catch (error) {
@@ -62,16 +65,11 @@ const Adminsecond = (props) => {
 
         return (
 
-            <div className="main-container-admin">
-                <div className="side-bar-admin">
+            <div className="">
 
-                    <div className="admin-sidebar">
-                        <div className="side-bar-elements"><Boton destino="Buscar Usuario" url="/adminsecond" /></div>
-                        <div className="side-bar-elements"><Boton destino="Usuarios y pedidos" url="/adminthird" /></div>
-                        <div className="side-bar-elements logout-admin" onClick={() => logOut()}>Desconectar</div>
+                   
+                        {/*<div className="side-bar-elements logout-admin" onClick={() => logOut()}>Desconectar</div>*/}
 
-                    </div>
-                </div>
 
                 <div className="main-container-one">
                     <h1 className="admin-h1"></h1>
@@ -123,6 +121,48 @@ const Adminsecond = (props) => {
                             </div>
                         }
                     </div>
+
+                    {datosperfil.length > 0 &&
+                            <div>
+                                <h2>Todos los usuarios</h2>
+                                <div className="all-users-registers-title">
+                                    <p className="colum-components-admin-print" >Nombre</p>
+                                    <p className="colum-components-admin-print" >Email</p>
+                                    <p className="colum-components-admin-print" >Id</p>
+                                </div>
+                                <div id="table-home-print">
+                                    <div className="colum-home-print">
+
+                                        {datosperfil.map(run => {
+                                            return (
+                                                <p className="colum-components-admin-print-register" key={run._id}>
+                                                    {run.name}
+                                                </p>
+                                            )
+                                        })}
+                                    </div>
+                                    <div className="colum-home-print">
+                                        {datosperfil.map(run => {
+                                            return (
+                                                <p className="colum-components-admin-print-register" key={run._id}>
+                                                    {run.email}
+                                                </p>
+                                            )
+                                        })}
+                                    </div>
+                                    <div className="colum-home-print">
+                                        {datosperfil.map(run => {
+                                            return (
+                                                <p className="colum-components-admin-print-register" key={run._id}>
+                                                    {run._id}
+                                                </p>
+                                            )
+                                        })}
+                                    </div>
+
+                                </div>
+                            </div>
+                        }
 
                 </div>
 
