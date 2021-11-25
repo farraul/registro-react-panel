@@ -13,7 +13,25 @@ const Adminthird = (props) => {
 
     const [datosperfil, setDatosPerfil] = useState("");
     const [datospedidos, setdatospedidos] = useState("");
-    const [ email_client, setemail_client] = useState("");
+    const [id_client, setid_client] = useState("");
+    const [data_order, setdataorder_client] = useState("");
+    const [name_client, setname_client] = useState("");
+    const [email_client, setemail_client] = useState("");
+    const [name_film, setname_film] = useState("");
+    const [number_order, setnumber_order] = useState("");
+
+    const [id_film,setid_film] = useState("");
+
+
+
+   
+
+
+
+
+
+
+
     const history = useNavigate();
 
     useEffect(() => {
@@ -51,16 +69,27 @@ const Adminthird = (props) => {
         }
     };
 
+
+    const ver_menos = () => {
+        let element = document.getElementById("myDIV");
+        element.classList.remove("mystyle");
+    }
+
+
+
     const ver_mas = async (run) => {
         let element = document.getElementById("myDIV");
         element.classList.add("mystyle");
-        setemail_client(run);
-     
-    }
+        setid_client(run.id_cliente);
+        setemail_client(run.email_cliente);
+        setdataorder_client(run.fecha_recogida);
+        setname_client(run.nombre_cliente);
+        setname_film(run.name_film);
+        setnumber_order(run._id);
+        setid_film(run.id_film);
 
-    const cierreAlquiler= () => {
-        let element = document.getElementById("myDIV");
-        element.classList.remove("mystyle");
+        console.log("run: ", run)
+
     }
 
 
@@ -126,7 +155,6 @@ const Adminthird = (props) => {
                             <div className="last-order-titles">
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Número pedido</p></div>
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Fecha pedido</p></div>
-                                <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Nombre cliente</p></div>
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Email cliente</p></div>
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Pelicula alquilada</p></div>
                             </div>
@@ -149,11 +177,7 @@ const Adminthird = (props) => {
                                                             {run.createdAt}
                                                         </p>
                                                     </div>
-                                                    <div>
-                                                        <p className="colum-components-admin-print-pedidos" key={run._id}>
-                                                            {run.nombre_cliente}
-                                                        </p>
-                                                    </div>
+
                                                     <div>
                                                         <p className="colum-components-admin-print-pedidos" key={run._id}>
                                                             {run.email_cliente}
@@ -165,7 +189,7 @@ const Adminthird = (props) => {
                                                         </p>
                                                     </div>
                                                     <div>
-                                                    <p onclick="" className="colum-components-admin-print-pedidos-vermas"  onClick={() => ver_mas(run)}>Ver más</p>
+                                                        <p onclick="" className="colum-components-admin-print-pedidos-vermas" onClick={() => ver_mas(run)}>Ver más</p>
                                                     </div>
                                                 </div>
                                             )
@@ -178,13 +202,62 @@ const Adminthird = (props) => {
 
 
                             <div className="abrepeliculas" id="myDIV">
-                                    <div className="salida" id="X" onClick={() => cierreAlquiler()}>SALIR</div>
-                                    <div>🎬Has alquilado la siguiente pelicula🎬</div> 
-                                    <div>Título: </div>
-                                    <div>Director: </div>
-                                    <div>Género: </div>
-                                    <div>Duración: </div>
-                                    <div>Lanzamiento: </div>                            
+                                <div className="salida" id="X" onClick={() => ver_menos()}>SALIR</div>
+                                <div className="two-tables">
+                                    <div className="left-titles">
+                                        <div className="table-flex-data">
+                                            <div> <p>Número de pedido: </p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>Fecha pedido:</p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>Nombre cliente:</p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>Email cliente: </p> </div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>Pelicula alquilada: </p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>Id de pelicula:</p></div>
+                                        </div>
+                                    </div>
+                                    <div className="right-info">
+                                        <div className="table-flex-data">
+                                            <div> <p>{number_order}</p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>{data_order}</p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>{name_client}</p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>{email_client}</p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>{name_film} </p></div>
+                                        </div>
+                                        <div className="table-flex-data">
+                                            <div><p>{id_film} </p></div>
+                                        </div>
+
+
+
+
+                                      
+                                    </div>
+
+
+
+                                </div>
+
+
+
+
+
                             </div>
 
 
