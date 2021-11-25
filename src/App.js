@@ -4,7 +4,7 @@ import './App.scss';
 
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Header from './Components/Header/Header';
-import Panel_admin from './Components/Panel_Admin/Panel_admin';
+import Panel_Admin from './Components/Panel_Admin/Panel_Admin';
 import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login';
 import Profile from './Containers/Profile/Profile';
@@ -34,7 +34,7 @@ function App() {
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/adminsecond" element={<Adminsecond/>}/>
           <Route path="/adminthird" element={<Adminthird/>}/>
-          <Route path="/panel-admin" element={<Panel_admin/>}/>
+          <Route path="/panel-admin" element={<Panel_Admin/>}/>
         </Routes>
         
         <Footer/>

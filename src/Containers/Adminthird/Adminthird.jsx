@@ -73,6 +73,9 @@ const Adminthird = (props) => {
     const ver_menos = () => {
         let element = document.getElementById("myDIV");
         element.classList.remove("mystyle");
+
+        let element_back = document.getElementById("open-files-background");
+        element_back.classList.remove("open-files-back-dark");
     }
 
 
@@ -80,6 +83,10 @@ const Adminthird = (props) => {
     const ver_mas = async (run) => {
         let element = document.getElementById("myDIV");
         element.classList.add("mystyle");
+        let element_back = document.getElementById("open-files-background");
+        element_back.classList.add("open-files-back-dark");
+
+       
         setid_client(run.id_cliente);
         setemail_client(run.email_cliente);
         setdataorder_client(run.fecha_recogida);
@@ -155,7 +162,6 @@ const Adminthird = (props) => {
                             <div className="last-order-titles">
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Número pedido</p></div>
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Fecha pedido</p></div>
-                                <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Email cliente</p></div>
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Pelicula alquilada</p></div>
                             </div>
 
@@ -177,12 +183,7 @@ const Adminthird = (props) => {
                                                             {run.createdAt}
                                                         </p>
                                                     </div>
-
-                                                    <div>
-                                                        <p className="colum-components-admin-print-pedidos" key={run._id}>
-                                                            {run.email_cliente}
-                                                        </p>
-                                                    </div>
+                                  
                                                     <div>
                                                         <p className="colum-components-admin-print-pedidos" key={run._id}>
                                                             {run.name_film}
@@ -200,9 +201,9 @@ const Adminthird = (props) => {
                             }
 
 
-
+                        <div className="" id="open-files-background">
                             <div className="abrepeliculas" id="myDIV">
-                                <div className="salida" id="X" onClick={() => ver_menos()}>SALIR</div>
+                                <div className="salida" id="X" onClick={() => ver_menos()}>X</div>
                                 <div className="two-tables">
                                     <div className="left-titles">
                                         <div className="table-flex-data">
@@ -259,6 +260,7 @@ const Adminthird = (props) => {
 
 
                             </div>
+                        </div>
 
 
 
