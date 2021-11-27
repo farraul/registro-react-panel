@@ -6,12 +6,13 @@ import { connect } from 'react-redux';
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import './Adminthird.scss';
 import Boton from '../../Components/Boton/Boton';
+import Icon_search from'../../images/lupa.png';
 
 
 
 const Adminthird = (props) => {
 
-    const [datosperfil, setDatosPerfil] = useState("");
+  
     const [datospedidos, setdatospedidos] = useState("");
     const [id_client, setid_client] = useState("");
     const [data_order, setdataorder_client] = useState("");
@@ -35,7 +36,7 @@ const Adminthird = (props) => {
     const history = useNavigate();
 
     useEffect(() => {
-        takeusers();
+    
         takepedidos();
 
     }, [])
@@ -46,15 +47,7 @@ const Adminthird = (props) => {
         console.log("entrologout");
     }
 
-    const takeusers = async () => {
-        try {
-            let res = await axios.get("https://app-movies-mongoose.herokuapp.com/usuario/");
-            setDatosPerfil(res.data);
-            console.log("res: ", res)
-        } catch (error) {
-            console.log(error);
-        }
-    };
+
     const takepedidos = async () => {
         try {
             let res_pedido = await axios.get("https://app-movies-mongoose.herokuapp.com/pedido", {
@@ -108,57 +101,11 @@ const Adminthird = (props) => {
 
             <div className="main-container-admin">
                 <div className="main-container-one">
-                    <h1 className="admin-h1"></h1>
-
-
-                    <div className="">
-                        <h2 className="text-center mt-2">Últimos usuarios registradoss</h2>
-
-                        {datosperfil.length > 0 &&
-                            <div>
-                                <div className="users-registers-title">
-                                    <p className="colum-components-admin-print" >Nombre</p>
-                                    <p className="colum-components-admin-print" >Email</p>
-                                    <p className="colum-components-admin-print" >Id</p>
-                                </div>
-                                <div id="table-home-print">
-                                    <div className="colum-home-print">
-
-                                        {datosperfil.map(run => {
-                                            return (
-                                                <p className="colum-components-admin-print-register" key={run._id}>
-                                                    {run.name}
-                                                </p>
-                                            )
-                                        })}
-                                    </div>
-                                    <div className="colum-home-print">
-                                        {datosperfil.map(run => {
-                                            return (
-                                                <p className="colum-components-admin-print-register" key={run._id}>
-                                                    {run.email}
-                                                </p>
-                                            )
-                                        })}
-                                    </div>
-                                    <div className="colum-home-print">
-                                        {datosperfil.map(run => {
-                                            return (
-                                                <p className="colum-components-admin-print-register" key={run._id}>
-                                                    {run._id}
-                                                </p>
-                                            )
-                                        })}
-                                    </div>
-
-                                </div>
-                            </div>
-                        }
-                    </div>
+                   
                     <div>
 
                         <div>
-                            <h2 className="text-center mt-4">Últimos pedidoss</h2>
+                            <h2 className="text-center">Últimos pedidos</h2>
                             <div className="last-order-titles">
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Número pedido</p></div>
                                 <div className="titles-of-last-orders"><p className="colum-components-admin-print-pedidos-titles">Fecha pedido</p></div>
@@ -190,7 +137,11 @@ const Adminthird = (props) => {
                                                         </p>
                                                     </div>
                                                     <div>
-                                                        <p onclick="" className="colum-components-admin-print-pedidos-vermas" onClick={() => ver_mas(run)}>Ver más</p>
+                                                        <p onclick="" className="colum-components-admin-print-pedidos-vermas" onClick={() => ver_mas(run)}>
+                                                        <img className="icon-search" src={Icon_search} />
+
+                                                     
+                                                        </p>
                                                     </div>
                                                 </div>
                                             )

@@ -28,10 +28,10 @@ const Panel_admin = (props) => {
         <div className="panel-admin">
             <div className="panel-admin-side-bar">
                 <div>
-                    <p onClick={() =>setscreenselected(<Adminsecond/>)}>Buscar Usuarios</p>
+                    <p onClick={() =>setscreenselected(<Adminsecond/>)}>Usuarios</p>
                 </div>
                 <div>
-                    <p onClick={() =>setscreenselected(<Admin_tree/>)}>Toda la info</p>
+                    <p onClick={() =>setscreenselected(<Admin_tree/>)}>Pedidos</p>
                 </div>
                 <div>
                     <p onClick={() => logOut()}>LogOut</p>
