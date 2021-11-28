@@ -16,6 +16,7 @@ import Footer from './Components/Footer/Footer';
 import Adminsecond from './Containers/Adminsecond/Adminsecond';
 import Adminthird from './Containers/Adminthird/Adminthird';
 import Adminfour from './Containers/Adminfour/Adminfour';
+import Adminfive from './Containers/Adminfive/Adminfive';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/adminthird" element={<Adminthird/>}/>
           <Route path="/adminfour" element={<Adminfour/>}/>
           <Route path="/panel-admin" element={<Panel_Admin/>}/>
+          <Route path="/panelfive" element={<Adminfive/>}/>
         </Routes>
         
         <Footer/>

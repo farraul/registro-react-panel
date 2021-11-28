@@ -3,6 +3,7 @@ import './Panel_Admin.scss';
 import Adminsecond from '../../Containers/Adminsecond/Adminsecond'
 import Admin_tree from '../../Containers/Adminthird/Adminthird'
 import Admin_four from '../../Containers/Adminfour/Adminfour';
+import Admin_five from '../../Containers/Adminfive/Adminfive'
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -36,6 +37,9 @@ const Panel_admin = (props) => {
                 </div>
                 <div>
                     <p onClick={() =>setscreenselected(<Admin_four/>)}>Peliculas</p>
+                </div>
+                <div>
+                    <p onClick={() =>setscreenselected(<Admin_five/>)}>Estadísticas</p>
                 </div>
 
                 <div>
