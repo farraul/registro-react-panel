@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Panel_Admin.scss';
 import Adminsecond from '../../Containers/Adminsecond/Adminsecond'
 import Admin_tree from '../../Containers/Adminthird/Adminthird'
+import Admin_four from '../../Containers/Adminfour/Adminfour';
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -33,6 +34,10 @@ const Panel_admin = (props) => {
                 <div>
                     <p onClick={() =>setscreenselected(<Admin_tree/>)}>Pedidos</p>
                 </div>
+                <div>
+                    <p onClick={() =>setscreenselected(<Admin_four/>)}>Peliculas</p>
+                </div>
+
                 <div>
                     <p onClick={() => logOut()}>LogOut</p>
                 </div>

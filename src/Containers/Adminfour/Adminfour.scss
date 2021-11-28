@@ -1,0 +1,49 @@
+.displayPeliculas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0em 0em;
+}
+
+.peli {
+    width: 8em;
+    height: 16em;
+    background-color: black;
+}
+
+.cartel {
+    height: 12em;
+}
+p.title-film {
+    padding: 0px 1em;
+    text-align: center;
+    font-size: 0.6em;
+}
+
+
+.admin-films-panel-statistics {
+    display: flex;
+    background-color: white;
+    border-radius: 9px;
+    margin: 6em;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 2em 0em;
+}
+.admin-films-statistics-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.admin-films-statistics-score {
+    font-size: 1.3em;
+    text-align: center;
+}
+.admin-films-stadistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

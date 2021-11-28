@@ -73,20 +73,32 @@ const Adminsecond = (props) => {
     console.log("array",array);
     if(array.length == 0)
         return null;
-        console.log("entre2");
+        //console.log("entre2");
     var modeMap = {};
     var maxEl = array[0], maxCount = 1;
+
+
     for(var i = 0; i < array.length; i++)
     {
         var el = array[i];
+        //console.log("el:",el);
+
         if(modeMap[el] == null)
             modeMap[el] = 1;
         else
+        //console.log("el antes ++: ",modeMap[el]);
             modeMap[el]++;  
+           // console.log("el despues++: ",modeMap[el]);
         if(modeMap[el] > maxCount)
         {
-            maxEl = el;
+            //console.log("if final:",modeMap[el]);
+           // console.log("maxcount:",maxCount);
+
+            maxEl = el;  
             maxCount = modeMap[el];
+            //console.log("maxEl:",maxEl);
+            //console.log("maxcount final:",maxCount);
+
         }
     }
     setnamemorerepeat(maxEl.name);
@@ -127,7 +139,8 @@ const Adminsecond = (props) => {
                                 <p>Nombre más repetido:</p>
                             </div>
                             <div className="panel_resume_result">
-                            {namemorerepeat}
+                          { /* {namemorerepeat} */}
+                          En proceso
                             </div>
                         </div>
 

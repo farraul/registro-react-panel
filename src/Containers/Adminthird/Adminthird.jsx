@@ -25,27 +25,12 @@ const Adminthird = (props) => {
 
 
 
-   
-
-
-
-
-
-
-
-    const history = useNavigate();
 
     useEffect(() => {
     
         takepedidos();
 
     }, [])
-    const logOut = () => {
-        //vaciamos redux. Así ya no estamos logueados
-        props.dispatch({ type: LOGOUT });
-        history("/login");
-        console.log("entrologout");
-    }
 
 
     const takepedidos = async () => {

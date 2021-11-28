@@ -15,10 +15,7 @@ import Admin from './Containers/Admin/Admin';
 import Footer from './Components/Footer/Footer';
 import Adminsecond from './Containers/Adminsecond/Adminsecond';
 import Adminthird from './Containers/Adminthird/Adminthird';
-<script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>;
-<script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>;
-<script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>;
-
+import Adminfour from './Containers/Adminfour/Adminfour';
 
 function App() {
   return (
@@ -38,6 +35,7 @@ function App() {
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/adminsecond" element={<Adminsecond/>}/>
           <Route path="/adminthird" element={<Adminthird/>}/>
+          <Route path="/adminfour" element={<Adminfour/>}/>
           <Route path="/panel-admin" element={<Panel_Admin/>}/>
         </Routes>
         
