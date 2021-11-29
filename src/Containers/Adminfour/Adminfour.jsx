@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import './Adminfour.scss';
+import {TAKE_STADISTICS} from '../../redux/types';
 
 
 
@@ -57,6 +58,9 @@ const Adminfour = (props) => {
                 maxCount_morepopular =array[i].popularity;
                 setthefilm_morepopular(array[i].popularity);
                 setthefilm_name_morepopular(array[i].title);
+
+                props.dispatch({type:TAKE_STADISTICS,payload:setthefilm_morepopular});
+
                 
 
             }

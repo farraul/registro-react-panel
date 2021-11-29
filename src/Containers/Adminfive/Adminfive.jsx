@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import './Adminfive.scss';
+import data_statistics from '../../redux/reducers/data_statistics';
 
 
 
@@ -35,6 +36,10 @@ const Adminfive = (props) => {
         changeSide();
         
         radioGroup.addEventListener( 'change', changeSide );
+
+
+        console.log("",props.data_statistics);
+
 
 
     }, [])
