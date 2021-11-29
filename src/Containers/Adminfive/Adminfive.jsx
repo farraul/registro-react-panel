@@ -17,10 +17,30 @@ const Adminfive = (props) => {
 
     useEffect(() => {
         traePeliculas();
+
+        var cube = document.querySelector('.cube');
+        var radioGroup = document.querySelector('.radio-group');
+        var currentClass = '';
+        
+        function changeSide() {
+          var checkedRadio = radioGroup.querySelector(':checked');
+          var showClass = 'show-' + checkedRadio.value;
+          if ( currentClass ) {
+            cube.classList.remove( currentClass );
+          }
+          cube.classList.add( showClass );
+          currentClass = showClass;
+        }
+        // set initial side
+        changeSide();
+        
+        radioGroup.addEventListener( 'change', changeSide );
+
+
     }, [])
 
     useEffect(() => {
-    }, [])
+    })
 
     const traePeliculas = async () => {
         let res = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=51c1099989a6923f3d12154210fc2cf7&language=en-US&page=1");
@@ -30,28 +50,8 @@ const Adminfive = (props) => {
     };
 
 
-    var cube = document.querySelector('.cube');
-    var radioGroup = document.querySelector('.radio-group');
-    var currentClass = '';
+  
 
-
-
-    function changeSide() {
-        var checkedRadio = radioGroup?.querySelector(':checked');
-        var showClass = 'show-' + checkedRadio?.value;
-        if (currentClass) {
-            cube.classList?.remove(currentClass);
-        }
-        cube.classList?.add(showClass);
-        currentClass = showClass;
-    }
-
-
-
-    // set initial side
-    changeSide();
-
-    radioGroup?.addEventListener('change', changeSide);
 
 
 
