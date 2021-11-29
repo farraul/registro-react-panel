@@ -5,19 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import './Adminfive.scss';
-import data_statistics from '../../redux/reducers/data_statistics';
+import data_estad from '../../redux/reducers/data_estad';
 
 
 
 const Adminfive = (props) => {
     const history = useNavigate();
-    const [peliculas, setPeliculas] = useState([]);
 
 
 
 
     useEffect(() => {
-        traePeliculas();
 
         var cube = document.querySelector('.cube');
         var radioGroup = document.querySelector('.radio-group');
@@ -38,21 +36,13 @@ const Adminfive = (props) => {
         radioGroup.addEventListener( 'change', changeSide );
 
 
-        console.log("",props.data_statistics);
-
+         console.log("props34:", props);
 
 
     }, [])
 
     useEffect(() => {
     })
-
-    const traePeliculas = async () => {
-        let res = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=51c1099989a6923f3d12154210fc2cf7&language=en-US&page=1");
-        setPeliculas(res.data.results);
-        console.log("datos", res.data.results);
-
-    };
 
 
   
@@ -65,7 +55,13 @@ const Adminfive = (props) => {
             <div className="back-of-the-cube">
                 <div class="scene">
                     <div class="cube">
-                        <div class="cube__face cube__face--front">front</div>
+                        <div class="cube__face cube__face--front">
+                        <p className="estadistics-cube-front">Pelicula con mejor nota</p>
+                        <br/>
+                        <p> {props.data_estad}</p>
+
+
+                        </div>
                         <div class="cube__face cube__face--back">back</div>
                         <div class="cube__face cube__face--right">right</div>
                         <div class="cube__face cube__face--left">left</div>
@@ -116,4 +112,6 @@ const Adminfive = (props) => {
 export default connect((state) => ({
     data_user: state.data_user,
     data_film: state.data_film,
+    data_estad: state.data_estad,
+
 }))(Adminfive);

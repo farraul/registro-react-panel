@@ -1,19 +1,18 @@
-import { TAKE_STADISTICS} from '../types';
+import {TAKE_ESTAD} from '../types';
 
 const initialState = {
-    film : ''
+    saludo : '',
   
 };
 
-const data_stadistics = (state = initialState, action) => {
+const data_estad = (state = initialState, action) => {
     
     switch(action.type){
         //Ejemplo de añadido de datos
-        case TAKE_STADISTICS :
+        case TAKE_ESTAD :
             return action.payload;
-
         default :
             return state
     }
 }
-export default data_stadistics;
+export default data_estad;

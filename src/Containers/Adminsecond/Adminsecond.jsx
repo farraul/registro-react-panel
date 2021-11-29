@@ -111,7 +111,6 @@ const Adminsecond = (props) => {
 
     if (props.data_user?.token !== '') {
 
-
         return (
 
             <div className="">
@@ -139,7 +138,6 @@ const Adminsecond = (props) => {
                                 <p>Nombre más repetido:</p>
                             </div>
                             <div className="panel_resume_result">
-                          { /* {namemorerepeat} */}
                           En proceso
                             </div>
                         </div>
@@ -202,7 +200,7 @@ const Adminsecond = (props) => {
 
 
 
-                    {datosusuario.length > 0 &&
+                    {datosusuario?.length > 0 &&
                         <div>
                             <h2>Todos los usuarios</h2>
                             <div className="all-users-registers-title">
@@ -213,7 +211,7 @@ const Adminsecond = (props) => {
                             <div id="table-home-print">
                                 <div className="colum-home-print">
 
-                                    {datosusuario.map(run => {
+                                    {datosusuario?.map(run => {
                                         return (
                                             <p className="colum-components-admin-print-register" key={run._id}>
                                                 {run.name}
@@ -222,7 +220,7 @@ const Adminsecond = (props) => {
                                     })}
                                 </div>
                                 <div className="colum-home-print">
-                                    {datosusuario.map(run => {
+                                    {datosusuario?.map(run => {
                                         return (
                                             <p className="colum-components-admin-print-register" key={run._id}>
                                                 {run.email}
@@ -231,7 +229,7 @@ const Adminsecond = (props) => {
                                     })}
                                 </div>
                                 <div className="colum-home-print">
-                                    {datosusuario.map(run => {
+                                    {datosusuario?.map(run => {
                                         return (
                                             <p className="colum-components-admin-print-register" key={run._id}>
                                                 {run._id}

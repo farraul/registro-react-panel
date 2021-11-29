@@ -1,7 +1,7 @@
-import {TAKE_FILM} from '../types';
+import {TAKE_FILM, TAKE_DATA} from '../types';
 
 const initialState = {
-    stadistics : ''
+    saludo : ''
   
 };
 
@@ -11,6 +11,7 @@ const data_film = (state = initialState, action) => {
         //Ejemplo de añadido de datos
         case TAKE_FILM :
             return action.payload;
+
 
         default :
             return state
