@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './Adminfour.scss';
-import { TAKE_ESTAD } from '../../redux/types';
 
 
 
@@ -41,7 +40,7 @@ const Adminfour = (props) => {
    const  change_data_redux_morescore = () =>{
     console.log("thefilm_name_morescore444:",thefilm_name_morescore)
        
-    props.dispatch({type:TAKE_ESTAD,payload:{thefilm_name_morescore}});
+    //props.dispatch({type:TAKE_ESTAD,payload:{"thefilm_name_morescore"}});
     console.log("las props44s:",props)
 
     }
@@ -178,5 +177,4 @@ const Adminfour = (props) => {
 export default connect((state) => ({
     data_user: state.data_user,
     data_film: state.data_film,
-    data_estad: state.data_estad,
 }))(Adminfour);

@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import './Adminfive.scss';
-import data_estad from '../../redux/reducers/data_estad';
 
 
 
@@ -56,9 +55,8 @@ const Adminfive = (props) => {
                 <div class="scene">
                     <div class="cube">
                         <div class="cube__face cube__face--front">
-                        <p className="estadistics-cube-front">Pelicula con mejor nota</p>
-                        <br/>
-                        <p> {props.data_estad}</p>
+                        <p className="estadistics-cube-front">Mejor nota</p>
+                    
 
 
                         </div>
@@ -112,6 +110,5 @@ const Adminfive = (props) => {
 export default connect((state) => ({
     data_user: state.data_user,
     data_film: state.data_film,
-    data_estad: state.data_estad,
 
 }))(Adminfive);

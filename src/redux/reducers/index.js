@@ -6,7 +6,7 @@ import data_estad from './data_estad';
 
 
 const rootReducer = combineReducers({
-    data_user, data_film, data_estad 
+    data_user, data_film, data_estad
 
 });
 
