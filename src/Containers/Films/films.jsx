@@ -45,6 +45,7 @@ const Films = (props) => {
     if(peliculas[1]?.title){ //"?" significa que si falla que vaya al else, sino se bloquea
 
         return (
+            <div className="section-films-center">
             <div className="displayPeliculas">
                 {
                     peliculas.map((peli) => {
@@ -58,6 +59,7 @@ const Films = (props) => {
                     })
                 }
 
+            </div>
             </div>
         )
 

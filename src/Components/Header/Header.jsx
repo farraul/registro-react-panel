@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Boton from '../Boton/Boton';
 import { connect } from 'react-redux';
 import logo from '../../images/raul-logo.png';
+import profile from '../../images/profile.png';
+
 
 
 const Header = (props) => {
@@ -25,6 +27,9 @@ const Header = (props) => {
                 { /*sinonimo:   props.data_user?.user?._id ?null :<Boton destino="Registro" url="/register"/>*/ }
                 { !props.data_user?.user?._id && <Boton destino="Login" url="/login"/>}
                 { props.data_user?.user?.rol=="admin" ? <Boton destino="Admin" url="/admin"/>: null}
+                <div className="icono-user-logeado">
+                <img className="img-profile" src={profile} alt="profile"  />
+                    {props.data_user?.user?.name}</div>
 
                 
             </div>
