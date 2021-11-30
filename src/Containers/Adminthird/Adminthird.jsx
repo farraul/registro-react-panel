@@ -163,7 +163,7 @@ const Adminthird = (props) => {
                                     </div>
                                     <div className="right-info">
                                         <div className="table-flex-data">
-                                            <div> <p>{number_order}</p></div>
+                                            <div> <p className="ml-1">{number_order}</p></div>
                                         </div>
                                         <div className="table-flex-data">
                                             <div><p>{data_order}</p></div>

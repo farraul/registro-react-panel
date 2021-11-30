@@ -133,14 +133,14 @@ const Adminsecond = (props) => {
                             </div>
                         </div>
 
-                        <div className="panel_resume_data">
+                       {/* <div className="panel_resume_data">
                             <div className="panel_resume_title">
                                 <p>Nombre más repetido:</p>
                             </div>
                             <div className="panel_resume_result">
                           En proceso
                             </div>
-                        </div>
+                        </div>*/}
 
                     </div>
 
