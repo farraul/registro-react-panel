@@ -68,7 +68,7 @@ const Film = (props) => {
     
                    setTimeout(()=>{
                     history("/profile");
-                },2000);  
+                },1000);  
 
             } catch (error) {
                 console.log(error)
