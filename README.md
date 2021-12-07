@@ -20,4 +20,4 @@ Contraseña:
 12345
 
 # Desplegado
-https://main.d30z6ex64y4oyo.amplifyapp.com/admin
+https://main.d30z6ex64y4oyo.amplifyapp.com
