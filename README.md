@@ -16,9 +16,9 @@ raul2@gmail.com
 Contraseña:
 12345
 
-# Desplegado
+# Ver aplicación
 https://main.d30z6ex64y4oyo.amplifyapp.com
-
+# Capturas de pantalla
 ![image](https://user-images.githubusercontent.com/28491001/145027441-f47ecb26-ac23-450e-99bb-a65e44e10018.png)
 ![image](https://user-images.githubusercontent.com/28491001/145027475-a93391b9-e1f4-4fbe-96f4-4c4839259ff3.png)
 # Validador en el front:
