@@ -1,4 +1,4 @@
-# Proyecto Front-end y Backend Videoclub
+# Proyecto Front-end y Back-end Videoclub
 HTML, CSS, JAVASCRIPT, REACT, REDUX, NODE.JS, MONGO DB
 
 
