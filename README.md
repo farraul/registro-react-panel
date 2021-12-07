@@ -1,5 +1,5 @@
 # Proyecto Front-end y Backend Videoclub
-HTML, CSS, JAVASCRIPT, REACT, REDUX, NODE.JS, MONGODB
+HTML, CSS, JAVASCRIPT, REACT, REDUX, NODE.JS, MONGO DB
 
 
 # Usuario para conectar como admin:
