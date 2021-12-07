@@ -3,7 +3,7 @@ HTML, CSS, JAVASCRIPT, REACT, REDUX, NODE.JS, MONGO DB
 
 
 # Usuario para conectar como admin:
-(La diferencia que tiene admin es que podremos acceder al contenedor de "admin" en el que veremos los últimos usuarios registrados y últimos pedidos"
+(La diferencia que tiene admin es que podremos acceder al contenedor de "admin" en el que veremos los últimos usuarios registrados y últimos pedidos, estadísticas, pedidos..."
 
 raul@gmail.com
 
